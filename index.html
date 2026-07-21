@@ -400,7 +400,7 @@
       <p>RezGap extracts the most important keywords and phrases from the job posting (weighted by how often and how prominently they appear), then checks which ones your resume actually contains. The score is the weighted share your resume covers. It's a keyword-overlap measure — the same class of check recruiters' ATS searches rely on — not a judgment of your experience, and not a guarantee of an interview. And despite the scare stat you may have seen elsewhere, most ATS don't auto-reject resumes: they store them, and recruiters search and rank them by keywords. That search is what this score approximates. It doesn't understand synonyms: if the posting says "Google Analytics" and you wrote "web analytics tooling," add their exact words where they're true of you. Never add keywords that aren't true — the goal is translation, not fabrication.</p>
       <p>Pricing comparison for context: the established tools in this category charge recurring subscriptions — e.g. Jobscan at $49.95/month (their published price as of July 2026, when this page was written). RezGap's full report is a single $12 purchase.</p>
     </details>
-    <p>Questions or unlock issues: <a href="mailto:jlats116@gmail.com">jlats116@gmail.com</a> (include your Gumroad receipt for a manual unlock).</p>
+    <p>Questions or unlock issues: <a href="mailto:rezgapbiz@rezgap.com">rezgapbiz@rezgap.com</a> (include your Gumroad receipt for a manual unlock).</p>
   </footer>
 </div>
 
@@ -685,13 +685,17 @@ if (typeof module !== "undefined" && module.exports) module.exports = RG;
 
   // ---- MONETIZATION CONFIG — fill in after creating the Gumroad product ----
   var GUMROAD_PRODUCT_PERMALINK = "gpmvbz";      // set after creating the Gumroad product (outreach/GUMROAD-SETUP.md)
+  // Gumroad's license API requires product_id for newer products (permalink
+  // verification is deprecated — verified live 2026-07-21; the ID comes from
+  // the API's own error message or Products API).
+  var GUMROAD_PRODUCT_ID = "0MMKtet70bpg5YmWgTNeIQ==";
   var GUMROAD_BUY_URL = "https://gumroad.com/l/" + GUMROAD_PRODUCT_PERMALINK;
   var GUMROAD_VERIFY_URL = "https://api.gumroad.com/v2/licenses/verify";
   var UNLOCK_PRICE_LABEL = "$12 one-time";
   // NOTE: no client-side backup/bypass codes, deliberately — anything in this
   // file is public. Support/refund edge cases: issue a real Gumroad license key
   // manually from the Gumroad dashboard and email it to the customer.
-  var CONTACT = "jlats116@gmail.com";
+  var CONTACT = "rezgapbiz@rezgap.com";
   var MIN_CHARS = 50;
   var FREE_MISSING_LIMIT = 10;
 
@@ -914,7 +918,7 @@ if (typeof module !== "undefined" && module.exports) module.exports = RG;
     keyMsg("Checking…", "");
     fetch(GUMROAD_VERIFY_URL, {
       method: "POST",
-      body: new URLSearchParams({ product_permalink: GUMROAD_PRODUCT_PERMALINK, license_key: key })
+      body: new URLSearchParams({ product_id: GUMROAD_PRODUCT_ID, license_key: key })
     }).then(function (r) { return r.json(); }).then(function (data) {
       if (data && data.success) {
         saveUnlock(key);
