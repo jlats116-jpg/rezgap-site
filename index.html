@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RezGap — Free ATS Resume Keyword Checker (No Signup, No Upload)</title>
+<meta name="description" content="Paste your resume and the job posting — get your ATS keyword match score and the exact missing words in seconds. Runs entirely in your browser: no signup, no upload, no subscription.">
+<meta property="og:title" content="RezGap — the exact keywords your resume is missing">
+<meta property="og:description" content="Free keyword match score against any job posting + the exact missing words. No signup, nothing uploaded — it all runs in your browser. The full report is a one-time unlock, never a subscription.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "RezGap",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "url": "https://rezgap.com/",
+      "description": "Free client-side ATS resume keyword checker: paste your resume and the job posting, get a keyword match score and the exact missing words. Runs entirely in your browser — no signup, no upload."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is RezGap?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RezGap is a free ATS resume keyword checker. You paste your resume and the job posting, and it shows your keyword match score and exactly which of the posting's words your resume is missing — in seconds, with no signup and nothing uploaded."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my resume uploaded or stored anywhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Nothing you paste is ever sent anywhere — scoring runs entirely in your browser. The only network request the page can make is the one-time license check if you buy the full report."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do ATS systems automatically reject resumes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mostly no — despite the scare stat often repeated online, most ATS don't auto-reject resumes. They store them, and recruiters search and rank them by keywords. That recruiter keyword search is what a match score approximates: a low score means you're hard to find in a recruiter search, not that software rejected you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is the match score calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "RezGap extracts the most important keywords and phrases from the job posting, weighted by how often and how prominently they appear, then checks which ones your resume contains. The score is the weighted share your resume covers. It's a keyword-overlap measure, not a judgment of your experience — and it doesn't understand synonyms, so use the posting's exact words where they're true of you. Never add keywords that aren't true: the goal is translation, not fabrication."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does RezGap cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The match score and top missing keywords are free, with no signup. The full report is a one-time unlock — never a subscription. For comparison, established tools in this category charge recurring subscriptions (e.g. Jobscan at $49.95/month as of July 2026)."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rezgap.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RezGap — the exact keywords your resume is missing">
+<meta name="twitter:description" content="Free keyword match score against any job posting + the exact missing words. No signup, nothing uploaded.">
+<meta name="twitter:image" content="https://rezgap.com/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23ffe34d'/%3E%3Cpath d='M20 72 A34 34 0 0 1 80 72' fill='none' stroke='%23d9c33e' stroke-width='11' stroke-linecap='round'/%3E%3Cpath d='M20 72 A34 34 0 0 1 62 41' fill='none' stroke='%2323231f' stroke-width='11' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root {
+    color-scheme: light;
+    /* Highlighter skin: paper ground, recruiter's-marker yellow, serif display */
+    --page:      #fbfaf7;
+    --surface:   #ffffff;
+    --ink:       #23231f;
+    --ink-2:     #4a4841;
+    --muted:     #74726a;
+    --hairline:  #e5e3da;
+    --ring:      rgba(35,35,31,0.12);
+    --marker:    #ffe34d;
+    --marker-soft: rgba(255,227,77,0.5);
+    --accent:    #23231f;
+    --good:      #158015;
+    --warning:   #8a6400;
+    --critical:  #c02b2b;
+    --serif:     Georgia, "Times New Roman", serif;
+    --shadow:    0 1px 0 var(--hairline), 0 12px 28px -18px rgba(60,55,30,0.25);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  mark { background: linear-gradient(transparent 45%, var(--marker) 45%); color: inherit; padding: 0 2px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 28px 18px 64px; }
+  header { text-align: center; padding: 26px 0 30px; }
+  .wordmark { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
+  .wordmark .gap { background: linear-gradient(transparent 55%, var(--marker) 55%); }
+  .headline {
+    font-family: var(--serif); font-weight: 700; font-size: clamp(28px, 5.4vw, 40px);
+    line-height: 1.16; letter-spacing: -0.01em; margin: 18px auto 0; max-width: 20ch;
+    text-wrap: balance;
+  }
+  .tagline { color: var(--ink-2); margin-top: 14px; font-size: 16px; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .tagline strong { color: var(--ink); }
+
+  .inputs { display: grid; grid-template-columns: 1fr; gap: 22px; }
+  @media (min-width: 660px) { .inputs { grid-template-columns: 1fr 1fr; } }
+  /* paste boxes as paper documents, tape mark on the corner */
+  .field {
+    position: relative; background: var(--surface); border: 1px solid var(--hairline);
+    border-radius: 3px; box-shadow: var(--shadow); padding: 16px 18px 14px;
+  }
+  .field::before {
+    content: ""; position: absolute; top: -7px; left: 22px; width: 70px; height: 15px;
+    background: var(--marker-soft); transform: rotate(-1.6deg);
+  }
+  .field label { display: block; font-weight: 700; font-size: 14px; margin-bottom: 8px; }
+  .field .hint { color: var(--muted); font-weight: 400; }
+  textarea {
+    width: 100%; min-height: 220px; resize: vertical;
+    background: var(--surface); color: var(--ink);
+    border: 1px solid var(--hairline); border-radius: 3px;
+    padding: 12px 14px; font: 14px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  textarea:focus { outline: 2px solid var(--ink); outline-offset: 1px; border-color: transparent; }
+  .counter { font-size: 12px; color: var(--muted); text-align: right; margin-top: 4px; min-height: 1.2em; }
+
+  .actions { display: flex; gap: 14px; align-items: center; justify-content: center; margin-top: 24px; flex-wrap: wrap; }
+  button { font: inherit; cursor: pointer; }
+  .btn-primary {
+    background: var(--ink); color: var(--page); border: 0; border-radius: 999px;
+    padding: 15px 38px; font-size: 17px; font-weight: 700;
+  }
+  /* kept clickable on purpose (native disabled buttons swallow clicks, so the
+     guard message could never show) — the handler validates instead */
+  .btn-primary[aria-disabled="true"] { background: var(--hairline); color: var(--muted); cursor: not-allowed; }
+  .btn-ghost {
+    background: none; border: 0; color: var(--muted); font-size: 14px;
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+  .btn-ghost:hover { color: var(--ink-2); }
+
+  /* pre-scan example result (hidden once a real scan runs) */
+  .example { margin-top: 40px; background: var(--surface); border: 1px solid var(--hairline); border-radius: 3px; box-shadow: var(--shadow); padding: 24px 24px 22px; }
+  .example-tag { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; color: var(--muted); }
+  .example-grid { display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; margin-top: 16px; }
+  @media (max-width: 560px) { .example-grid { grid-template-columns: 1fr; text-align: center; } .example .chips { justify-content: center; } }
+  .example-arc { font-family: var(--serif); font-weight: 700; font-size: 44px; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .example-arc .to { color: var(--good); }
+  .example-arc .arrow { color: var(--muted); font-size: 30px; padding: 0 4px; }
+  .example-lede { font-family: var(--serif); font-size: 19px; line-height: 1.4; }
+  .example-note { margin-top: 10px; font-size: 13.5px; color: var(--muted); }
+  .guard-note { width: 100%; text-align: center; font-size: 13px; color: var(--muted); min-height: 1.2em; }
+
+  .money { display: none; margin-top: 34px; }
+  .money.show { display: block; }
+  .gauge-card {
+    background: var(--surface); border: 1px solid var(--hairline); border-radius: 3px;
+    box-shadow: var(--shadow); padding: 30px 20px 24px; text-align: center;
+  }
+  .gauge-box { position: relative; width: 300px; max-width: 100%; margin: 0 auto; }
+  .gauge-box svg { display: block; width: 100%; height: auto; }
+  .gauge-num {
+    position: absolute; left: 0; right: 0; bottom: 8px;
+    font-family: var(--serif); font-size: 84px; font-weight: 700; letter-spacing: -0.03em; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .gauge-sub { position: absolute; left: 0; right: 0; bottom: -12px; color: var(--muted); font-size: 13px; }
+  .verdict { font-family: var(--serif); font-size: 20px; font-weight: 700; margin-top: 30px; }
+  .stats { display: flex; gap: 10px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
+  .stat {
+    border: 1px solid var(--hairline); border-radius: 3px; padding: 8px 16px;
+    font-size: 14px; color: var(--ink-2); background: var(--page);
+  }
+  .stat b { color: var(--ink); font-size: 16px; font-variant-numeric: tabular-nums; }
+
+  .section-h { font-size: 15px; font-weight: 700; margin: 26px 0 10px; text-align: left; }
+  .chips { display: flex; flex-wrap: wrap; gap: 9px; justify-content: flex-start; }
+  /* missing keywords wear the highlighter */
+  .chip {
+    background: var(--marker-soft); border: 0;
+    border-radius: 2px; padding: 5px 13px; font-size: 14px; color: var(--ink);
+  }
+  .chip.hit { background: var(--surface); border: 1px solid var(--hairline); color: var(--ink-2); }
+  .chip.hit::before { content: "✓ "; color: var(--good); font-weight: 700; }
+  .none-note { color: var(--muted); font-size: 14px; }
+
+  /* trust strip */
+  .trust { display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 44px; }
+  @media (min-width: 660px) { .trust { grid-template-columns: 1fr 1fr 1fr; } }
+  .trust-item { border-top: 3px solid var(--marker); padding: 14px 4px 0; }
+  .trust-item b { display: block; font-size: 15px; margin-bottom: 4px; }
+  .trust-item p { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+
+  .locked { margin-top: 26px; background: var(--surface); border: 1px solid var(--hairline); border-radius: 3px; box-shadow: var(--shadow); overflow: hidden; }
+  .locked-head { padding: 20px 22px 6px; }
+  .locked-head h2 { font-family: var(--serif); font-size: 22px; }
+  .teaser { color: var(--warning); font-weight: 700; font-size: 14px; margin-top: 2px; }
+  /* free vs full comparison table */
+  .compare { margin-top: 12px; }
+  .compare-row {
+    display: grid; grid-template-columns: 1fr 72px 72px; align-items: center;
+    padding: 10px 22px; border-top: 1px solid var(--hairline); font-size: 14.5px;
+  }
+  .compare-row > div:nth-child(2), .compare-row > div:nth-child(3) { text-align: center; }
+  .compare-head { font-size: 12.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border-top: 0; padding-top: 4px; }
+  .compare .yes { color: var(--good); font-weight: 700; }
+  .compare .no { color: var(--muted); }
+  .compare-row .full-col { background: var(--marker-soft); border-radius: 2px; padding: 3px 0; }
+  .locked-cta { padding: 18px 22px 22px; text-align: center; border-top: 1px solid var(--hairline); margin-top: 8px; }
+  .btn-buy {
+    display: inline-block; background: var(--marker); color: var(--ink); border: 0;
+    border-radius: 999px; padding: 14px 28px; font-size: 16px; font-weight: 800;
+    text-decoration: none; box-shadow: 0 1px 0 rgba(35,35,31,0.15);
+  }
+  .buy-note { margin-top: 10px; font-size: 13px; color: var(--muted); }
+  .key-toggle { margin-top: 12px; }
+  .key-row { display: none; margin-top: 12px; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .key-row.show { display: flex; }
+  .key-row input {
+    background: var(--page); color: var(--ink); border: 1px solid var(--hairline);
+    border-radius: 3px; padding: 10px 12px; font: 14px system-ui, sans-serif; width: 260px; max-width: 100%;
+  }
+  .key-row input:focus { outline: 2px solid var(--ink); outline-offset: 1px; }
+  .btn-verify { background: var(--ink); color: var(--page); border: 0; border-radius: 999px; padding: 10px 18px; font-weight: 700; }
+  .key-msg { width: 100%; font-size: 13px; min-height: 1.2em; }
+  .key-msg.err { color: var(--critical); }
+  .key-msg.ok { color: var(--good); }
+
+  .full { display: none; margin-top: 26px; }
+  .full.show { display: block; }
+  .full-badge { color: var(--good); font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .checkrow { display: flex; gap: 10px; align-items: baseline; padding: 7px 0; border-bottom: 1px solid var(--hairline); font-size: 15px; }
+  .checkrow .mark { font-weight: 800; }
+  .checkrow.pass .mark { color: var(--good); }
+  .checkrow.fail .mark { color: var(--critical); }
+  .flag-list { list-style: none; }
+  .flag-list li { padding: 7px 0 7px 26px; position: relative; border-bottom: 1px solid var(--hairline); font-size: 15px; color: var(--ink-2); }
+  .flag-list li::before { content: "⚠"; position: absolute; left: 2px; color: var(--warning); }
+  .flag-list li.none { padding-left: 0; }
+  .flag-list li.none::before { content: none; }
+  .btn-report { margin-top: 18px; background: none; border: 1.5px solid var(--ink); color: var(--ink); border-radius: 999px; padding: 11px 22px; font-weight: 700; }
+  .btn-report:hover { background: var(--marker-soft); }
+
+  footer { margin-top: 46px; border-top: 1px solid var(--hairline); padding-top: 22px; color: var(--muted); font-size: 13.5px; }
+  footer p { margin-bottom: 10px; }
+  footer a { color: var(--ink-2); }
+  details { margin-bottom: 10px; }
+  summary { cursor: pointer; color: var(--ink-2); }
+  details p { margin-top: 8px; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  #money:focus { outline: none; }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="wordmark">Rez<span class="gap">Gap</span></div>
+    <h1 class="headline">Recruiters search by keyword. See which ones <mark>you're missing.</mark></h1>
+    <p class="tagline">Paste your resume and the job posting — get your match score and the exact missing words in seconds. No signup. Nothing uploaded. <span id="price-claim">Full report is <strong>$12 once</strong> — never a subscription.</span></p>
+  </header>
+
+  <main>
+    <div class="inputs">
+      <div class="field">
+        <label for="resume">Your Resume <span class="hint">(paste the text — no file upload, nothing leaves your browser)</span></label>
+        <textarea id="resume" spellcheck="false" placeholder="Paste your resume text here. Tip: open your resume, select all, copy, paste."></textarea>
+        <div class="counter" id="resume-counter"></div>
+      </div>
+      <div class="field">
+        <label for="jd">The Job Posting <span class="hint">(paste the full description)</span></label>
+        <textarea id="jd" spellcheck="false" placeholder="Paste the job description here — the whole posting works best."></textarea>
+        <div class="counter" id="jd-counter"></div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-primary" id="scan" aria-disabled="true">Scan My Resume</button>
+      <button class="btn-ghost" id="sample" type="button">Try it with sample data</button>
+      <div class="guard-note" id="guard"></div>
+    </div>
+
+    <section class="example" id="example" aria-label="Example result">
+      <div class="example-tag">Example — the built-in sample data, before and after</div>
+      <div class="example-grid">
+        <div class="example-arc"><span>32</span><span class="arrow">→</span><span class="to">78</span></div>
+        <div>
+          <p class="example-lede">The sample resume scores 32 against its posting. Adding six of these words — the ones that were already true — lifts it to 78:</p>
+          <div class="chips">
+            <span class="chip">google analytics</span>
+            <span class="chip">hubspot</span>
+            <span class="chip">google ads</span>
+            <span class="chip">a/b testing</span>
+            <span class="chip">seo</span>
+            <span class="chip">canva</span>
+          </div>
+          <p class="example-note">Each one is a term the posting uses that the resume doesn't. Hit "Try it with sample data" to see the 32 for yourself — then add these words to the sample resume and rescan to watch it climb. Or just paste your own.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="sr-only" id="sr-result" aria-live="polite"></div>
+    <section class="money" id="money" tabindex="-1">
+      <div class="gauge-card">
+        <div class="gauge-box">
+          <svg viewBox="0 0 300 165" role="img" id="gauge-svg" aria-label="Match score">
+            <path d="M 20 150 A 130 130 0 0 1 280 150" fill="none" stroke="var(--hairline)" stroke-width="14" stroke-linecap="round"/>
+            <path d="M 20 150 A 130 130 0 0 1 280 150" fill="none" stroke="var(--warning)" stroke-width="14" stroke-linecap="round" id="gauge-arc" pathLength="100" stroke-dasharray="0 100"/>
+          </svg>
+          <div class="gauge-num" id="gauge-num">0</div>
+          <div class="gauge-sub">match score / 100</div>
+        </div>
+        <div class="verdict" id="verdict"></div>
+        <div class="stats">
+          <div class="stat"><b id="stat-matched">0</b> keywords matched</div>
+          <div class="stat"><b id="stat-missing">0</b> missing</div>
+        </div>
+        <h3 class="section-h">Top missing keywords <span class="hint" style="color:var(--muted);font-weight:400">— add the ones that are true of you</span></h3>
+        <div class="chips" id="missing-chips"></div>
+      </div>
+
+      <div class="locked" id="locked">
+        <div class="locked-head">
+          <h2>Full Report</h2>
+          <div class="teaser" id="teaser"></div>
+        </div>
+        <div class="compare">
+          <div class="compare-row compare-head"><div></div><div>Free</div><div>Full</div></div>
+          <div class="compare-row"><div>Match score + top 10 missing keywords</div><div class="yes">✓</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Every missing keyword, ranked by importance</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Matched-keyword list</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Section checks — Skills / Experience / Education</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>ATS red-flag checklist (formatting traps that scramble parsers)</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Downloadable .txt report</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Unlimited scans and rescans while you edit</div><div class="yes">✓</div><div class="yes full-col">✓</div></div>
+        </div>
+        <div class="locked-cta">
+          <a class="btn-buy" id="buy" href="#" target="_blank" rel="noopener">Unlock Full Report — $12 one-time</a>
+          <div class="buy-note" id="buy-note">One payment, yours forever. No subscription, no account.</div>
+          <div class="key-toggle"><button class="btn-ghost" id="key-toggle" type="button">Already bought? Enter your license key</button></div>
+          <div class="key-row" id="key-row">
+            <input id="key-input" placeholder="Paste your license key" aria-label="License key">
+            <button class="btn-verify" id="key-verify" type="button">Verify &amp; Unlock</button>
+            <div class="key-msg" id="key-msg"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="full" id="full">
+        <div class="full-badge">✓ Full report unlocked</div>
+
+        <h3 class="section-h">All missing keywords (ranked)</h3>
+        <div class="chips" id="full-missing"></div>
+
+        <h3 class="section-h">Matched keywords</h3>
+        <div class="chips" id="full-matched"></div>
+
+        <h3 class="section-h">Section checks</h3>
+        <div id="section-checks"></div>
+
+        <h3 class="section-h">ATS red flags</h3>
+        <ul class="flag-list" id="flags"></ul>
+
+        <button class="btn-report" id="report" type="button">Download Report (.txt)</button>
+        <div style="margin-top:14px"><button class="btn-ghost" id="forget" type="button">Not your computer? Forget this unlock on this device</button></div>
+      </div>
+    </section>
+    <section class="trust" aria-label="Why this is safe to use">
+      <div class="trust-item"><b>100% in your browser</b><p>Nothing is ever uploaded. Your resume never touches a server — check the network tab if you like.</p></div>
+      <div class="trust-item"><b>No signup</b><p>No email, no account, no "unlock your results" trap. Paste, scan, done.</p></div>
+      <div class="trust-item"><b>Free unlimited scans</b><p>Scan every job you apply to. The free version stays free.</p></div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong style="color:var(--ink-2)">Privacy:</strong> nothing you paste is ever sent anywhere — scoring runs entirely in your browser. The only network request this page can make is the one-time license check if you buy the full report. If you unlock, that unlock (including your license key) is remembered in this browser's local storage so you never re-enter it — on a shared computer, use the "forget this unlock" link in the full report when you're done.</p>
+    <details>
+      <summary>How scoring works (and what it can't tell you)</summary>
+      <p>RezGap extracts the most important keywords and phrases from the job posting (weighted by how often and how prominently they appear), then checks which ones your resume actually contains. The score is the weighted share your resume covers. It's a keyword-overlap measure — the same class of check recruiters' ATS searches rely on — not a judgment of your experience, and not a guarantee of an interview. And despite the scare stat you may have seen elsewhere, most ATS don't auto-reject resumes: they store them, and recruiters search and rank them by keywords. That search is what this score approximates. It doesn't understand synonyms: if the posting says "Google Analytics" and you wrote "web analytics tooling," add their exact words where they're true of you. Never add keywords that aren't true — the goal is translation, not fabrication.</p>
+      <p>Pricing comparison for context: the established tools in this category charge recurring subscriptions — e.g. Jobscan at $49.95/month (their published price as of July 2026, when this page was written). RezGap's full report is a single $12 purchase.</p>
+    </details>
+    <p>Questions or unlock issues: <a href="mailto:jlats116@gmail.com">jlats116@gmail.com</a> (include your Gumroad receipt for a manual unlock).</p>
+  </footer>
+</div>
+
+<!-- ============ CORE SCORING (ES5 on purpose — executed headlessly by tools/crosscheck_js.py via Duktape; keep bit-exact with tools/verify_score.py) ============ -->
+<script id="rg-core">
+var RG = (function () {
+  "use strict";
+
+  var STOPWORDS_LIST = ("a about above after again against all am an and any are aren't as at " +
+    "be because been before being below between both but by can cannot could couldn't " +
+    "did didn't do does doesn't doing don't down during each few for from further " +
+    "had hadn't has hasn't have haven't having he he'd he'll he's her here here's " +
+    "hers herself him himself his how how's i i'd i'll i'm i've if in into is isn't " +
+    "it it's its itself let's me more most mustn't my myself no nor not of off on " +
+    "once only or other ought our ours ourselves out over own same shan't she she'd " +
+    "she'll she's should shouldn't so some such than that that's the their theirs " +
+    "them themselves then there there's these they they'd they'll they're they've " +
+    "this those through to too under until up very was wasn't we we'd we'll we're " +
+    "we've were weren't what what's when when's where where's which while who who's " +
+    "whom why why's with won't would wouldn't you you'd you'll you're you've your " +
+    "yours yourself yourselves").split(" ");
+
+  var JD_FILLER_LIST = ("experience experienced years year ability able strong excellent good great " +
+    "proven demonstrated role position job work working works team teams company " +
+    "candidate candidates applicant applicants required requirements requirement " +
+    "preferred must should will looking seeking join opportunity skills skill " +
+    "knowledge understanding familiarity proficient proficiency responsibilities " +
+    "responsible including include includes etc plus related other various day " +
+    "daily across within using use used new us we you your " +
+    "keep keeps keeping run running runs turn turns own owns owning get gets help " +
+    "helps make makes take takes drive drives ensure ensures comfort comfortable " +
+    "hands-on day-to-day well highly ideal ideally bonus nice offer offers benefits " +
+    "salary location remote hybrid apply please submit equal employer diversity " +
+    "inclusion").split(" ");
+
+  // Object.create(null): no prototype chain, so words like "constructor" or
+  // "toString" behave as ordinary keys (a plain {} inherits those properties and
+  // silently corrupts extraction/matching — Python sets/dicts have no analogue).
+  var EXCLUDE = Object.create(null);
+  var i;
+  for (i = 0; i < STOPWORDS_LIST.length; i++) EXCLUDE[STOPWORDS_LIST[i]] = true;
+  for (i = 0; i < JD_FILLER_LIST.length; i++) EXCLUDE[JD_FILLER_LIST[i]] = true;
+
+  var WEIGHT = { 1: 1.0, 2: 2.0, 3: 2.6 };
+  var MIN_FREQ = { 1: 1, 2: 1, 3: 2 };
+  var BIGRAM_SINGLETON_WEIGHT = 0.9;
+  var PARTIAL_PHRASE_CREDIT = 0.5;
+  var TOP_N_CANDIDATES = 40;
+
+  function candScore(freqCount, ngramSize) {
+    if (ngramSize === 2 && freqCount === 1) return BIGRAM_SINGLETON_WEIGHT;
+    return freqCount * WEIGHT[ngramSize];
+  }
+
+  function normalized(text) {
+    var t = text.toLowerCase();
+    t = t.replace(/[^a-z0-9+#.\/\- ]/g, " ");
+    t = t.replace(/ +/g, " ");
+    t = t.replace(/^ | $/g, "");
+    return t;
+  }
+
+  function tokens(text) {
+    var raw = normalized(text).split(" ");
+    var out = [];
+    for (var j = 0; j < raw.length; j++) {
+      var tok = raw[j].replace(/\.$/, "").replace(/^\./, "");
+      if (!tok) continue;
+      if (!/[a-z0-9]/.test(tok)) continue;
+      if (/^[0-9]+$/.test(tok)) continue;
+      out.push(tok);
+    }
+    return out;
+  }
+
+  function segments(text) {
+    var t = text.replace(/\.(?=\s|$)/g, "\n");
+    t = t.replace(/[,;:!?()\[\]{}|]/g, "\n");
+    var parts = t.split("\n");
+    var out = [];
+    for (var j = 0; j < parts.length; j++) {
+      if (/\S/.test(parts[j])) out.push(parts[j]);
+    }
+    return out;
+  }
+
+  function joined(text) {
+    return tokens(text).join(" ");
+  }
+
+  function stem(word) {
+    var w = word.toLowerCase();
+    if (/ies$/.test(w) && w.length > 4) w = w.slice(0, -3) + "y";
+    else if (/ing$/.test(w) && w.length > 5) w = w.slice(0, -3);
+    else if (/ed$/.test(w) && w.length > 4) w = w.slice(0, -2);
+    else if (/es$/.test(w) && w.length > 4) w = w.slice(0, -2);
+    else if (/s$/.test(w) && !/ss$/.test(w) && w.length > 3) w = w.slice(0, -1);
+    if (/e$/.test(w) && w.length > 4) w = w.slice(0, -1);
+    return w;
+  }
+
+  function jdCandidates(jdText) {
+    var freq = Object.create(null), size = Object.create(null), firstPos = Object.create(null);
+
+    function add(cand, ngramSize, pos) {
+      freq[cand] = (freq[cand] || 0) + 1;
+      if (!(cand in size)) { size[cand] = ngramSize; firstPos[cand] = pos; }
+    }
+
+    var segs = segments(jdText);
+    var gpos = 0;
+    for (var s = 0; s < segs.length; s++) {
+      var W = tokens(segs[s]);
+      var n = W.length;
+      var j;
+      for (j = 0; j < n; j++) {
+        if (!EXCLUDE[W[j]] && W[j].length >= 2) add(W[j], 1, gpos + j);
+      }
+      for (j = 0; j < n - 1; j++) {
+        if (!EXCLUDE[W[j]] && !EXCLUDE[W[j + 1]]) add(W[j] + " " + W[j + 1], 2, gpos + j);
+      }
+      for (j = 0; j < n - 2; j++) {
+        if (!EXCLUDE[W[j]] && !EXCLUDE[W[j + 1]] && !EXCLUDE[W[j + 2]]) {
+          add(W[j] + " " + W[j + 1] + " " + W[j + 2], 3, gpos + j);
+        }
+      }
+      gpos += n;
+    }
+
+    var scored = [];
+    for (var c in freq) {
+      if (freq[c] >= MIN_FREQ[size[c]]) scored.push([c, candScore(freq[c], size[c])]);
+    }
+    scored.sort(function (a, b) {
+      if (a[1] !== b[1]) return b[1] - a[1];
+      if (size[a[0]] !== size[b[0]]) return size[b[0]] - size[a[0]];
+      if (a[0].length !== b[0].length) return b[0].length - a[0].length;
+      return firstPos[a[0]] - firstPos[b[0]];
+    });
+
+    function contains(a, b) {
+      return (" " + a + " ").indexOf(" " + b + " ") !== -1;
+    }
+
+    var accepted = [];
+    for (var k = 0; k < scored.length; k++) {
+      var cand = scored[k][0], sc = scored[k][1];
+      var clash = false;
+      for (var m = 0; m < accepted.length; m++) {
+        var acc = accepted[m][0];
+        if (contains(cand, acc) || contains(acc, cand)) { clash = true; break; }
+      }
+      if (!clash && cand.indexOf(" ") === -1) {
+        for (var m2 = 0; m2 < accepted.length; m2++) {
+          var acc2 = accepted[m2][0];
+          if (acc2.indexOf(" ") === -1 && stem(acc2) === stem(cand)) { clash = true; break; }
+        }
+      }
+      if (!clash) accepted.push([cand, sc]);
+      if (accepted.length === TOP_N_CANDIDATES) break;
+    }
+    return accepted;
+  }
+
+  function stemSet(text) {
+    var toks = tokens(text);
+    var set = Object.create(null);
+    for (var j = 0; j < toks.length; j++) set[stem(toks[j])] = true;
+    return set;
+  }
+
+  function matchCredit(cand, resumeJoined, resumeStems) {
+    if (cand.indexOf(" ") === -1) {
+      return resumeStems[stem(cand)] ? 1.0 : 0.0;
+    }
+    if ((" " + resumeJoined + " ").indexOf(" " + cand + " ") !== -1) return 1.0;
+    var words = cand.split(" ");
+    for (var j = 0; j < words.length; j++) {
+      if (!resumeStems[stem(words[j])]) return 0.0;
+    }
+    return PARTIAL_PHRASE_CREDIT;
+  }
+
+  function scan(resumeText, jdText) {
+    var universe = jdCandidates(jdText);
+    var resumeJoined = joined(resumeText);
+    var resumeStems = stemSet(resumeText);
+
+    var matchedWeight = 0.0, totalWeight = 0.0;
+    var missing = [], matched = [];
+    for (var j = 0; j < universe.length; j++) {
+      var cand = universe[j][0], w = universe[j][1];
+      totalWeight += w;
+      var credit = matchCredit(cand, resumeJoined, resumeStems);
+      matchedWeight += w * credit;
+      if (credit === 1.0) matched.push(cand);
+      else missing.push(cand);
+    }
+
+    var raw = totalWeight > 0 ? (matchedWeight / totalWeight) * 100 : 0;
+    if (raw < 0) raw = 0;
+    if (raw > 100) raw = 100;
+    var score = Math.floor(raw + 0.5);
+    return { score: score, missing: missing, matched: matched, universeSize: universe.length };
+  }
+
+  // [ \t] instead of \s (JS \s matches NBSP; Python side uses re.ASCII + [ \t]
+  // so both engines behave identically — keep in sync with verify_score.py)
+  var SECTION_CHECKS = [
+    ["Skills", /\b(technical[ \t]+)?skills\b|\bcore[ \t]+competencies\b/i, "No Skills section header found"],
+    ["Experience", /\b(work[ \t]+|professional[ \t]+)?experience\b|\bemployment[ \t]+history\b|\bwork[ \t]+history\b/i, "No Experience section header found"],
+    ["Education", /\beducation\b/i, "No Education section header found"]
+  ];
+
+  function sectionChecks(resumeText) {
+    var out = [];
+    for (var j = 0; j < SECTION_CHECKS.length; j++) {
+      out.push({ name: SECTION_CHECKS[j][0], present: SECTION_CHECKS[j][1].test(resumeText) });
+    }
+    return out;
+  }
+
+  function redFlags(resumeText) {
+    var flags = [];
+    var toks = tokens(resumeText);
+
+    if (!/[A-Za-z0-9_.+-]+@[A-Za-z0-9_-]+\.[A-Za-z0-9_.-]+/.test(resumeText)) flags.push("No email address detected.");
+    if (!/(\+?[0-9][0-9\- \t().]{7,}[0-9])/.test(resumeText)) flags.push("No phone number detected.");
+    for (var j = 0; j < SECTION_CHECKS.length; j++) {
+      if (!SECTION_CHECKS[j][1].test(resumeText)) flags.push(SECTION_CHECKS[j][2]);
+    }
+    var allLines = resumeText.split("\n");
+    var lines = [];
+    for (var L = 0; L < allLines.length; L++) {
+      if (/\S/.test(allLines[L])) lines.push(allLines[L]);
+    }
+    if (lines.length) {
+      var wide = 0;
+      for (var L2 = 0; L2 < lines.length; L2++) {
+        if (/[ \t]{4,}/.test(lines[L2])) wide++;
+      }
+      if (wide / lines.length > 0.15) {
+        flags.push("Possible table or multi-column layout detected — ATS parsers often scramble these into the wrong order.");
+      }
+    }
+    if (/[●▪➤✓✦◆]/.test(resumeText)) flags.push("Non-standard bullet characters detected — some ATS parsers drop or garble these.");
+    if (toks.length < 150) flags.push("Resume looks unusually short for reliable ATS parsing.");
+    if (toks.length > 1200) flags.push("Resume may be too long (roughly 2+ pages) — most ATS and recruiters skim, not read.");
+    // acronyms (AWS, SQL, CI/CD…) are normal resume vocabulary: only all-caps
+    // runs of 5+ letters count as shouting
+    var rawWords = resumeText.split(/[ \t\n\r\f\v]+/);
+    var caps = 0, cased = 0;
+    for (var r = 0; r < rawWords.length; r++) {
+      var letters = rawWords[r].replace(/[^A-Za-z]/g, "");
+      if (letters.length > 1) {
+        cased++;
+        if (letters.length >= 5 && letters === letters.toUpperCase()) caps++;
+      }
+    }
+    if (cased && caps / cased > 0.05) {
+      flags.push("Excessive capitalization detected — may trigger ATS formatting warnings or read as shouting to a human reviewer.");
+    }
+    return flags;
+  }
+
+  return {
+    scan: scan,
+    redFlags: redFlags,
+    sectionChecks: sectionChecks,
+    tokens: tokens,
+    stem: stem,
+    jdCandidates: jdCandidates
+  };
+})();
+if (typeof module !== "undefined" && module.exports) module.exports = RG;
+</script>
+
+<!-- ============ UI ============ -->
+<script>
+(function () {
+  "use strict";
+
+  // ---- MONETIZATION CONFIG — fill in after creating the Gumroad product ----
+  var GUMROAD_PRODUCT_PERMALINK = "gpmvbz";      // set after creating the Gumroad product (outreach/GUMROAD-SETUP.md)
+  var GUMROAD_BUY_URL = "https://gumroad.com/l/" + GUMROAD_PRODUCT_PERMALINK;
+  var GUMROAD_VERIFY_URL = "https://api.gumroad.com/v2/licenses/verify";
+  var UNLOCK_PRICE_LABEL = "$12 one-time";
+  // NOTE: no client-side backup/bypass codes, deliberately — anything in this
+  // file is public. Support/refund edge cases: issue a real Gumroad license key
+  // manually from the Gumroad dashboard and email it to the customer.
+  var CONTACT = "jlats116@gmail.com";
+  var MIN_CHARS = 50;
+  var FREE_MISSING_LIMIT = 10;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var resumeEl = $("resume"), jdEl = $("jd"), scanBtn = $("scan");
+  var lastResult = null, lastResumeText = "", lastJdText = "";
+  var unlocked = false;
+
+  // ---------- input guards ----------
+  // The button stays clickable (native disabled buttons never dispatch click
+  // events, so a guard message could never appear) — validation lives in the
+  // click handler; aria-disabled + styling communicate the not-ready state.
+  function inputsOk() {
+    return resumeEl.value.length >= MIN_CHARS && jdEl.value.length >= MIN_CHARS;
+  }
+  function updateGuard() {
+    var r = resumeEl.value.length, j = jdEl.value.length;
+    scanBtn.setAttribute("aria-disabled", inputsOk() ? "false" : "true");
+    $("resume-counter").textContent = r === 0 ? "" : (r < MIN_CHARS ? (MIN_CHARS - r) + " more characters needed" : r.toLocaleString() + " characters");
+    $("jd-counter").textContent = j === 0 ? "" : (j < MIN_CHARS ? (MIN_CHARS - j) + " more characters needed" : j.toLocaleString() + " characters");
+    $("guard").textContent = "";
+  }
+  resumeEl.addEventListener("input", updateGuard);
+  jdEl.addEventListener("input", updateGuard);
+
+  // ---------- sample data ----------
+  var SAMPLE_RESUME = "Taylor Morgan\nMarketing Assistant\ntaylor.morgan@email.com | 555-201-8842\n\nProfessional Experience\nMarketing Assistant, Brightline Media\n- Wrote and scheduled email campaigns for a subscriber list of 40,000 readers\n- Managed Instagram and LinkedIn accounts, growing followers 30% in one year\n- Drafted blog posts and coordinated with freelance designers and writers on social graphics\n- Followed brand guidelines across every campaign asset and template\n- Tracked campaign performance in spreadsheets and reported results monthly\n- Organized product launch events and coordinated vendor logistics\n\nMarketing Intern, Copper Kettle Co.\n- Supported weekly newsletter production and proofread landing pages\n- Helped plan influencer outreach and compiled engagement reports\n\nEducation\nB.A. Communications, State University\n\nSkills\nEmail marketing, copywriting, social media management, event planning,\ncontent writing, brand voice, project coordination";
+  var SAMPLE_JD = "Marketing Coordinator\n\nWe're looking for a Marketing Coordinator to run day-to-day campaign execution.\n\nResponsibilities:\n- Build and schedule email campaigns in HubSpot and keep the HubSpot CRM clean\n- Report performance in Google Analytics and turn Google Analytics data into recommendations\n- Launch and optimize Google Ads campaigns within budget\n- Improve organic traffic through SEO best practices and SEO-driven content briefs\n- Run A/B testing on landing pages and email subject lines\n- Design social graphics in Canva following brand guidelines\n- Own the social media content calendar across Instagram and LinkedIn\n- Coordinate with designers and writers to keep campaigns on schedule\n\nRequirements:\n- Hands-on HubSpot experience and comfort with Google Analytics\n- Working knowledge of Google Ads, SEO, and A/B testing\n- Strong Canva design instincts and social media content calendar ownership\n- Excellent writing and organization";
+
+  $("sample").addEventListener("click", function () {
+    resumeEl.value = SAMPLE_RESUME;
+    jdEl.value = SAMPLE_JD;
+    updateGuard();
+    runScan();
+  });
+
+  // ---------- scan + money screen ----------
+  var BANDS = [
+    { min: 75, color: "var(--good)",     hex: "#0ca30c", verdict: "Strong match — you speak the posting's language." },
+    { min: 50, color: "var(--warning)",  hex: "#fab219", verdict: "You're close — a few of their words matter." },
+    { min: 0,  color: "var(--critical)", hex: "#d03b3b", verdict: "Low match — hard to find in a recruiter search." }
+  ];
+  function band(score) {
+    for (var i = 0; i < BANDS.length; i++) if (score >= BANDS[i].min) return BANDS[i];
+    return BANDS[BANDS.length - 1];
+  }
+
+  function runScan() {
+    lastResumeText = resumeEl.value;
+    lastJdText = jdEl.value;
+    lastResult = RG.scan(lastResumeText, lastJdText);
+    lastResult.flags = RG.redFlags(lastResumeText);
+    lastResult.sections = RG.sectionChecks(lastResumeText);
+    render();
+    scanBtn.textContent = "Rescan";
+    $("example").style.display = "none"; // the real result replaces the example
+    var money = $("money");
+    money.classList.add("show");
+    money.scrollIntoView({ behavior: "smooth", block: "start" });
+    money.focus({ preventScroll: true });
+    // announce the final result ONCE via the separate live region (the animating
+    // counter itself is not aria-live, so screen readers hear one clean sentence)
+    var b = band(lastResult.score);
+    $("sr-result").textContent = "Match score " + lastResult.score + " out of 100. " + b.verdict + " " +
+      lastResult.matched.length + " keywords matched, " + lastResult.missing.length + " missing.";
+  }
+  scanBtn.addEventListener("click", function () {
+    if (!inputsOk()) {
+      $("guard").textContent = "Paste at least " + MIN_CHARS + " characters into each box first — both the resume and the posting.";
+      return;
+    }
+    runScan();
+  });
+
+  function render() {
+    var res = lastResult;
+    var b = band(res.score);
+
+    // gauge
+    var arc = $("gauge-arc");
+    arc.style.stroke = b.color;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var numEl = $("gauge-num");
+    if (reduce) {
+      gaugeGen++; // invalidate any in-flight animation
+      lastShownScore = res.score;
+      arc.setAttribute("stroke-dasharray", res.score + " 100");
+      numEl.textContent = res.score;
+    } else {
+      animateGauge(res.score, arc, numEl);
+    }
+    $("verdict").textContent = b.verdict;
+    $("verdict").style.color = b.color;
+    $("stat-matched").textContent = res.matched.length + " / " + res.universeSize;
+    $("stat-missing").textContent = res.missing.length;
+
+    // free chips
+    var chipBox = $("missing-chips");
+    chipBox.innerHTML = "";
+    var freeList = res.missing.slice(0, FREE_MISSING_LIMIT);
+    if (freeList.length === 0) {
+      chipBox.innerHTML = '<span class="none-note">No missing keywords — your resume covers everything important in this posting.</span>';
+    }
+    freeList.forEach(function (k) { chipBox.appendChild(chip(k)); });
+
+    // teaser (a true number, per spec)
+    var extra = res.missing.length - FREE_MISSING_LIMIT;
+    $("teaser").textContent = extra > 0 ? "+" + extra + " more missing keyword" + (extra === 1 ? "" : "s") + " in the full report" : "Everything below, unlocked once, yours forever";
+
+    renderFull();
+  }
+
+  function chip(text, hit) {
+    var el = document.createElement("span");
+    el.className = "chip" + (hit ? " hit" : "");
+    el.textContent = text;
+    return el;
+  }
+
+  // Animates from the last shown score (rescan reads 42 -> 87, not 0 -> 87 —
+  // the "combo counter" beat the demo is built on). The generation counter kills
+  // any in-flight loop so rapid rescans can't race two loops on the same nodes.
+  var gaugeGen = 0, lastShownScore = 0;
+  function animateGauge(target, arc, numEl) {
+    var myGen = ++gaugeGen;
+    var start = lastShownScore;
+    var t0 = null, DUR = 1100;
+    function ease(x) { return 1 - Math.pow(1 - x, 3); }
+    function frame(ts) {
+      if (myGen !== gaugeGen) return; // a newer animation took over
+      if (t0 === null) t0 = ts;
+      var p = Math.min((ts - t0) / DUR, 1);
+      var val = start + (target - start) * ease(p);
+      arc.setAttribute("stroke-dasharray", val + " 100");
+      numEl.textContent = Math.round(val);
+      lastShownScore = val;
+      if (p < 1) requestAnimationFrame(frame);
+      else lastShownScore = target;
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // ---------- locked / unlocked ----------
+  function renderFull() {
+    if (!unlocked || !lastResult) return;
+    var res = lastResult;
+
+    var fm = $("full-missing");
+    fm.innerHTML = "";
+    if (res.missing.length === 0) fm.innerHTML = '<span class="none-note">Nothing missing — full coverage.</span>';
+    res.missing.forEach(function (k) { fm.appendChild(chip(k)); });
+
+    var fmat = $("full-matched");
+    fmat.innerHTML = "";
+    if (res.matched.length === 0) fmat.innerHTML = '<span class="none-note">No matches yet — start with the missing list.</span>';
+    res.matched.forEach(function (k) { fmat.appendChild(chip(k, true)); });
+
+    var sc = $("section-checks");
+    sc.innerHTML = "";
+    res.sections.forEach(function (s) {
+      var row = document.createElement("div");
+      row.className = "checkrow " + (s.present ? "pass" : "fail");
+      row.innerHTML = '<span class="mark">' + (s.present ? "✓" : "✗") + "</span><span>" +
+        s.name + " section " + (s.present ? "found" : "not found — add a clearly-labeled " + s.name + " section") + "</span>";
+      sc.appendChild(row);
+    });
+
+    var fl = $("flags");
+    fl.innerHTML = "";
+    if (res.flags.length === 0) {
+      fl.innerHTML = '<li class="none">No red flags detected — clean formatting.</li>';
+    } else {
+      res.flags.forEach(function (f) {
+        var li = document.createElement("li");
+        li.textContent = f;
+        fl.appendChild(li);
+      });
+    }
+  }
+
+  function setUnlocked(on) {
+    unlocked = on;
+    $("locked").style.display = on ? "none" : "";
+    $("full").classList.toggle("show", on);
+    if (on) renderFull();
+  }
+
+  // buy button — degrades honestly while the Gumroad product isn't live yet
+  // (deploy.ps1 refuses to publish in this state; this is defense-in-depth for
+  // local/offline copies of the file)
+  var buyBtn = $("buy");
+  if (GUMROAD_PRODUCT_PERMALINK === "REPLACE_ME") {
+    buyBtn.textContent = "Full Report — purchases opening soon";
+    $("buy-note").textContent = "One-time unlock, never a subscription. Email " + CONTACT + " for early access.";
+    $("price-claim").textContent = "Full report unlock coming soon — one-time price, never a subscription.";
+    buyBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      $("buy-note").textContent = "Purchases open very soon — email " + CONTACT + " for early access.";
+    });
+  } else {
+    buyBtn.href = GUMROAD_BUY_URL;
+  }
+
+  // license key flow
+  $("key-toggle").addEventListener("click", function () {
+    $("key-row").classList.toggle("show");
+    if ($("key-row").classList.contains("show")) $("key-input").focus();
+  });
+
+  function keyMsg(text, cls) {
+    var el = $("key-msg");
+    el.textContent = text;
+    el.className = "key-msg " + (cls || "");
+  }
+
+  function verifyKey() {
+    var key = $("key-input").value.replace(/^\s+|\s+$/g, "");
+    if (!key) { keyMsg("Paste the license key from your Gumroad receipt email.", "err"); return; }
+
+    keyMsg("Checking…", "");
+    fetch(GUMROAD_VERIFY_URL, {
+      method: "POST",
+      body: new URLSearchParams({ product_permalink: GUMROAD_PRODUCT_PERMALINK, license_key: key })
+    }).then(function (r) { return r.json(); }).then(function (data) {
+      if (data && data.success) {
+        saveUnlock(key);
+        keyMsg("Unlocked. Thank you!", "ok");
+        setUnlocked(true);
+      } else {
+        keyMsg("Couldn't verify that key. Double-check it, or email " + CONTACT + " with your Gumroad receipt for a manual unlock.", "err");
+      }
+    }).catch(function () {
+      keyMsg("Couldn't reach the license server. Check your connection, or email " + CONTACT + " with your receipt for a manual unlock.", "err");
+    });
+  }
+  $("key-verify").addEventListener("click", verifyKey);
+  $("key-input").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") { e.preventDefault(); verifyKey(); }
+  });
+
+  function saveUnlock(key) {
+    try {
+      localStorage.setItem("rezgap_unlock", JSON.stringify({ unlocked: true, key: key, verifiedAt: Date.now() }));
+    } catch (e) { /* private mode — unlock still works for this visit */ }
+  }
+
+  // restore unlock on load — no network call on repeat visits
+  try {
+    var saved = JSON.parse(localStorage.getItem("rezgap_unlock") || "null");
+    if (saved && saved.unlocked === true) setUnlocked(true);
+  } catch (e) { /* corrupt state — stay locked */ }
+
+  // shared-computer escape hatch (disclosed in the privacy footer)
+  $("forget").addEventListener("click", function () {
+    try { localStorage.removeItem("rezgap_unlock"); } catch (e) {}
+    setUnlocked(false);
+    keyMsg("", "");
+    $("key-input").value = "";
+  });
+
+  // ---------- report download ----------
+  $("report").addEventListener("click", function () {
+    if (!lastResult) return;
+    var res = lastResult;
+    var b = band(res.score);
+    var lines = [];
+    lines.push("REZGAP REPORT");
+    lines.push("Generated: " + new Date().toISOString());
+    lines.push("");
+    lines.push("MATCH SCORE: " + res.score + " / 100  (" + b.verdict + ")");
+    lines.push("Keywords matched: " + res.matched.length + " of " + res.universeSize);
+    lines.push("");
+    lines.push("MISSING KEYWORDS (ranked, most important first)");
+    lines.push("Add the ones that are genuinely true of your experience:");
+    res.missing.forEach(function (k, i2) { lines.push("  " + (i2 + 1) + ". " + k); });
+    if (!res.missing.length) lines.push("  (none — full coverage)");
+    lines.push("");
+    lines.push("MATCHED KEYWORDS");
+    res.matched.forEach(function (k) { lines.push("  - " + k); });
+    if (!res.matched.length) lines.push("  (none)");
+    lines.push("");
+    lines.push("SECTION CHECKS");
+    res.sections.forEach(function (s) { lines.push("  [" + (s.present ? "OK" : "MISSING") + "] " + s.name); });
+    lines.push("");
+    lines.push("ATS RED FLAGS");
+    if (res.flags.length) res.flags.forEach(function (f) { lines.push("  ! " + f); });
+    else lines.push("  (none — clean formatting)");
+    lines.push("");
+    lines.push("--");
+    lines.push("RezGap runs entirely in your browser; nothing you paste is sent anywhere.");
+    lines.push("Keyword overlap is a screening signal, not a guarantee. Only add keywords that are true.");
+
+    var blob = new Blob([lines.join("\r\n")], { type: "text/plain" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "rezgap-report.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(a.href);
+  });
+
+  updateGuard();
+})();
+</script>
+</body>
+</html>
