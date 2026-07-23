@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RezGap — Free ATS Resume Keyword Checker (No Signup, No Upload)</title>
-<meta name="description" content="Paste your resume and the job posting — get your ATS keyword match score and the exact missing words in seconds. Runs entirely in your browser: no signup, no upload, no subscription.">
-<meta property="og:title" content="RezGap — the exact keywords your resume is missing">
-<meta property="og:description" content="Free keyword match score against any job posting + the exact missing words. No signup, nothing uploaded — it all runs in your browser. The full report is a one-time unlock, never a subscription.">
+<title>RezGap: Free ATS Resume Keyword Checker (No Signup, No Upload)</title>
+<meta name="description" content="Paste your resume and the job posting to get your ATS keyword match score and the exact missing words in seconds. Runs entirely in your browser: no signup, no upload, no subscription.">
+<meta property="og:title" content="RezGap: the exact keywords your resume is missing">
+<meta property="og:description" content="Free keyword match score against any job posting, plus the exact missing words. No signup, and nothing gets uploaded. The full report is a one-time unlock, never a subscription.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -17,7 +17,7 @@
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web",
       "url": "https://rezgap.com/",
-      "description": "Free client-side ATS resume keyword checker: paste your resume and the job posting, get a keyword match score and the exact missing words. Runs entirely in your browser — no signup, no upload."
+      "description": "Free client-side ATS resume keyword checker: paste your resume and the job posting, get a keyword match score and the exact missing words. Runs entirely in your browser with no signup and no upload."
     },
     {
       "@type": "FAQPage",
@@ -27,7 +27,7 @@
           "name": "What is RezGap?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "RezGap is a free ATS resume keyword checker. You paste your resume and the job posting, and it shows your keyword match score and exactly which of the posting's words your resume is missing — in seconds, with no signup and nothing uploaded."
+            "text": "RezGap is a free ATS resume keyword checker. You paste your resume and the job posting, and it shows your keyword match score along with exactly which of the posting's words your resume is missing. It takes a few seconds, there's no signup, and nothing gets uploaded."
           }
         },
         {
@@ -35,7 +35,7 @@
           "name": "Is my resume uploaded or stored anywhere?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Nothing you paste is ever sent anywhere — scoring runs entirely in your browser. The only network request the page can make is the one-time license check if you buy the full report."
+            "text": "No. Nothing you paste is ever sent anywhere, because scoring runs entirely in your browser. The only network request the page can make is the one-time license check if you buy the full report."
           }
         },
         {
@@ -43,7 +43,7 @@
           "name": "Do ATS systems automatically reject resumes?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Mostly no — despite the scare stat often repeated online, most ATS don't auto-reject resumes. They store them, and recruiters search and rank them by keywords. That recruiter keyword search is what a match score approximates: a low score means you're hard to find in a recruiter search, not that software rejected you."
+            "text": "Mostly no. Despite the scare stat that gets repeated online, most ATS don't auto-reject resumes. They store them, and recruiters search and rank them by keywords. That recruiter keyword search is what a match score approximates. A low score means you're hard to find in a recruiter search, not that software rejected you."
           }
         },
         {
@@ -51,7 +51,7 @@
           "name": "How is the match score calculated?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "RezGap extracts the most important keywords and phrases from the job posting, weighted by how often and how prominently they appear, then checks which ones your resume contains. The score is the weighted share your resume covers. It's a keyword-overlap measure, not a judgment of your experience — and it doesn't understand synonyms, so use the posting's exact words where they're true of you. Never add keywords that aren't true: the goal is translation, not fabrication."
+            "text": "RezGap extracts the most important keywords and phrases from the job posting, weighted by how often and how prominently they appear, then checks which ones your resume contains. The score is the weighted share your resume covers. It measures keyword overlap rather than judging your experience, and it doesn't understand synonyms, so use the posting's exact words where they're true of you. Never add keywords that aren't true."
           }
         },
         {
@@ -59,7 +59,7 @@
           "name": "How much does RezGap cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The match score and top missing keywords are free, with no signup. The full report is a one-time unlock — never a subscription. For comparison, established tools in this category charge recurring subscriptions (e.g. Jobscan at $49.95/month as of July 2026)."
+            "text": "The match score and top missing keywords are free, with no signup. The full report is a one-time unlock, never a subscription. For comparison, established tools in this category charge recurring subscriptions (e.g. Jobscan at $49.95/month as of July 2026)."
           }
         }
       ]
@@ -72,7 +72,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="RezGap — the exact keywords your resume is missing">
+<meta name="twitter:title" content="RezGap: the exact keywords your resume is missing">
 <meta name="twitter:description" content="Free keyword match score against any job posting + the exact missing words. No signup, nothing uploaded.">
 <meta name="twitter:image" content="https://rezgap.com/og.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23ffe34d'/%3E%3Cpath d='M20 72 A34 34 0 0 1 80 72' fill='none' stroke='%23d9c33e' stroke-width='11' stroke-linecap='round'/%3E%3Cpath d='M20 72 A34 34 0 0 1 62 41' fill='none' stroke='%2323231f' stroke-width='11' stroke-linecap='round'/%3E%3C/svg%3E">
@@ -256,6 +256,72 @@
   .btn-report { margin-top: 18px; background: none; border: 1.5px solid var(--ink); color: var(--ink); border-radius: 999px; padding: 11px 22px; font-weight: 700; }
   .btn-report:hover { background: var(--marker-soft); }
 
+  /* score explainer + free-tier substance */
+  .score-explain { margin-top: 10px; font-size: 13.5px; color: var(--muted); max-width: 46ch; margin-left: auto; margin-right: auto; }
+  .why-box { margin-top: 22px; text-align: left; background: var(--page); border: 1px solid var(--hairline); border-radius: 3px; padding: 14px 16px; }
+  .why-tag { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--muted); margin-bottom: 8px; }
+  .ev-quote { font-family: var(--serif); font-size: 15px; line-height: 1.5; color: var(--ink-2); padding-left: 12px; border-left: 3px solid var(--marker); margin: 6px 0; }
+  .ev-meta { font-size: 12.5px; color: var(--muted); }
+  .why-more { margin-top: 10px; font-size: 13px; color: var(--muted); }
+  .audit-teaser { margin-top: 12px; text-align: left; font-size: 14px; color: var(--ink-2); background: var(--page); border: 1px dashed var(--hairline); border-radius: 3px; padding: 10px 14px; }
+  .audit-teaser b { color: var(--ink); }
+
+  .gain-tag { font-size: 11.5px; font-weight: 700; color: var(--ink); background: var(--surface); border: 1px solid var(--hairline); border-radius: 999px; padding: 0 7px; margin-left: 7px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .chip .gain-tag { vertical-align: 1px; }
+
+  /* paid report: action plan, breakdown bars, keyword cards, audit */
+  .plan-arc { font-family: var(--serif); font-weight: 700; font-size: 30px; font-variant-numeric: tabular-nums; }
+  .plan-arc .to { color: var(--good); }
+  .plan-arc .arrow { color: var(--muted); font-size: 22px; padding: 0 6px; }
+  .plan-note { font-size: 14px; color: var(--ink-2); margin-top: 4px; }
+  .plan-list { list-style: none; margin-top: 10px; }
+  .plan-list li { padding: 7px 0; border-bottom: 1px solid var(--hairline); font-size: 15px; display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+  .plan-list .kw { font-weight: 700; }
+
+  .bar-row { display: grid; grid-template-columns: 200px 1fr 52px; gap: 12px; align-items: center; padding: 7px 0; font-size: 14px; }
+  @media (max-width: 560px) { .bar-row { grid-template-columns: 130px 1fr 46px; } }
+  .bar-track { background: var(--hairline); border-radius: 999px; height: 10px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 999px; background: var(--marker); }
+  .bar-fill.low { background: var(--critical); }
+  .bar-fill.mid { background: var(--warning); }
+  .bar-fill.high { background: var(--good); }
+  .bar-val { font-variant-numeric: tabular-nums; font-weight: 700; text-align: right; }
+  .bar-sub { grid-column: 1 / -1; font-size: 12.5px; color: var(--muted); margin-top: -4px; }
+
+  .kcard { border: 1px solid var(--hairline); border-radius: 3px; background: var(--surface); margin-bottom: 8px; }
+  .kcard summary { list-style: none; cursor: pointer; padding: 10px 14px; display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+  .kcard summary::-webkit-details-marker { display: none; }
+  .kcard summary::after { content: "+"; margin-left: auto; color: var(--muted); font-weight: 700; font-size: 16px; }
+  .kcard[open] summary::after { content: "–"; }
+  .kcard .kw { font-weight: 700; background: var(--marker-soft); border-radius: 2px; padding: 2px 9px; }
+  .kcard .kw.partial { background: var(--surface); border: 1px dashed var(--warning); }
+  .cat-tag { font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700; color: var(--muted); border: 1px solid var(--hairline); border-radius: 2px; padding: 1px 7px; }
+  .kcard-body { padding: 2px 14px 14px; border-top: 1px solid var(--hairline); }
+  .kcard-body p { font-size: 14px; color: var(--ink-2); margin-top: 10px; }
+  .kcard-body p b { color: var(--ink); }
+  .bucket-tag { display: inline-block; font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700; color: var(--warning); margin-right: 6px; }
+  .pattern { font-family: var(--serif); font-style: italic; background: var(--page); border: 1px solid var(--hairline); border-radius: 3px; padding: 8px 12px; margin-top: 8px; font-size: 14px; }
+
+  .ready-note { font-size: 14px; color: var(--ink-2); margin: 8px 0 4px; }
+  .ready-list { list-style: none; }
+  .ready-list li { padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid var(--hairline); font-size: 14.5px; color: var(--ink-2); }
+  .ready-list li::before { content: "→"; position: absolute; left: 2px; color: var(--warning); font-weight: 700; }
+  .ready-list b { color: var(--ink); }
+
+  .audit-stat { display: flex; gap: 10px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--hairline); font-size: 15px; flex-wrap: wrap; }
+  .audit-stat .num { font-weight: 800; font-variant-numeric: tabular-nums; min-width: 64px; }
+  .audit-stat.good .num { color: var(--good); }
+  .audit-stat.warn .num { color: var(--warning); }
+  .audit-stat.bad .num { color: var(--critical); }
+  .audit-quotes { width: 100%; margin: 2px 0 4px; }
+  .audit-quotes .q { font-size: 13.5px; color: var(--muted); padding: 3px 0 3px 14px; border-left: 2px solid var(--hairline); margin: 4px 0; }
+  .audit-quotes .q mark { background: var(--marker-soft); }
+  .audit-note { font-size: 12.5px; color: var(--muted); width: 100%; }
+
+  .cover-box textarea { min-height: 140px; margin-top: 8px; }
+  .cover-result { margin-top: 12px; font-size: 15px; }
+  .cover-result b { font-variant-numeric: tabular-nums; }
+
   footer { margin-top: 46px; border-top: 1px solid var(--hairline); padding-top: 22px; color: var(--muted); font-size: 13.5px; }
   footer p { margin-bottom: 10px; }
   footer a { color: var(--ink-2); }
@@ -278,19 +344,19 @@
   <header>
     <div class="wordmark">Rez<span class="gap">Gap</span></div>
     <h1 class="headline">Recruiters search by keyword. See which ones <mark>you're missing.</mark></h1>
-    <p class="tagline">Paste your resume and the job posting — get your match score and the exact missing words in seconds. No signup. Nothing uploaded. <span id="price-claim">Full report is <strong>$12 once</strong> — never a subscription.</span></p>
+    <p class="tagline">Paste your resume and the job posting. You'll get your match score and the exact missing words in seconds. No signup. Nothing uploaded. <span id="price-claim">The full report is a one-time <strong>$12</strong>, never a subscription.</span></p>
   </header>
 
   <main>
     <div class="inputs">
       <div class="field">
-        <label for="resume">Your Resume <span class="hint">(paste the text — no file upload, nothing leaves your browser)</span></label>
+        <label for="resume">Your Resume <span class="hint">(paste the text; no file upload, and nothing leaves your browser)</span></label>
         <textarea id="resume" spellcheck="false" placeholder="Paste your resume text here. Tip: open your resume, select all, copy, paste."></textarea>
         <div class="counter" id="resume-counter"></div>
       </div>
       <div class="field">
         <label for="jd">The Job Posting <span class="hint">(paste the full description)</span></label>
-        <textarea id="jd" spellcheck="false" placeholder="Paste the job description here — the whole posting works best."></textarea>
+        <textarea id="jd" spellcheck="false" placeholder="Paste the job description here. The whole posting works best."></textarea>
         <div class="counter" id="jd-counter"></div>
       </div>
     </div>
@@ -302,11 +368,11 @@
     </div>
 
     <section class="example" id="example" aria-label="Example result">
-      <div class="example-tag">Example — the built-in sample data, before and after</div>
+      <div class="example-tag">Example: the built-in sample data, before and after</div>
       <div class="example-grid">
         <div class="example-arc"><span>32</span><span class="arrow">→</span><span class="to">78</span></div>
         <div>
-          <p class="example-lede">The sample resume scores 32 against its posting. Adding six of these words — the ones that were already true — lifts it to 78:</p>
+          <p class="example-lede">The sample resume scores 32 against its posting. Adding six of these words (all of them already true) lifts it to 78:</p>
           <div class="chips">
             <span class="chip">google analytics</span>
             <span class="chip">hubspot</span>
@@ -315,7 +381,7 @@
             <span class="chip">seo</span>
             <span class="chip">canva</span>
           </div>
-          <p class="example-note">Each one is a term the posting uses that the resume doesn't. Hit "Try it with sample data" to see the 32 for yourself — then add these words to the sample resume and rescan to watch it climb. Or just paste your own.</p>
+          <p class="example-note">Each one is a term the posting uses that the resume doesn't. Hit "Try it with sample data" to see the 32 for yourself, then add these words to the sample resume and rescan to watch it climb. Or just paste your own.</p>
         </div>
       </div>
     </section>
@@ -332,12 +398,19 @@
           <div class="gauge-sub">match score / 100</div>
         </div>
         <div class="verdict" id="verdict"></div>
+        <p class="score-explain">The score is the weighted share of the posting's own language your resume covers. In practice, that's roughly how findable you are when a recruiter searches by these terms.</p>
         <div class="stats">
           <div class="stat"><b id="stat-matched">0</b> keywords matched</div>
           <div class="stat"><b id="stat-missing">0</b> missing</div>
         </div>
-        <h3 class="section-h">Top missing keywords <span class="hint" style="color:var(--muted);font-weight:400">— add the ones that are true of you</span></h3>
+        <h3 class="section-h">Top missing keywords <span class="hint" style="color:var(--muted);font-weight:400">(add the ones that are true of you; the tag shows the exact score gain)</span></h3>
         <div class="chips" id="missing-chips"></div>
+        <div class="why-box" id="why-box" style="display:none">
+          <div class="why-tag">Why it matters, straight from the posting</div>
+          <div id="why-body"></div>
+          <div class="why-more">The full report backs <em>every</em> keyword with the posting's own sentences, plus where to add it and how to word it.</div>
+        </div>
+        <div class="audit-teaser" id="audit-teaser" style="display:none"></div>
       </div>
 
       <div class="locked" id="locked">
@@ -347,16 +420,20 @@
         </div>
         <div class="compare">
           <div class="compare-row compare-head"><div></div><div>Free</div><div>Full</div></div>
-          <div class="compare-row"><div>Match score + top 10 missing keywords</div><div class="yes">✓</div><div class="yes full-col">✓</div></div>
-          <div class="compare-row"><div>Every missing keyword, ranked by importance</div><div class="no">—</div><div class="yes full-col">✓</div></div>
-          <div class="compare-row"><div>Matched-keyword list</div><div class="no">—</div><div class="yes full-col">✓</div></div>
-          <div class="compare-row"><div>Section checks — Skills / Experience / Education</div><div class="no">—</div><div class="yes full-col">✓</div></div>
-          <div class="compare-row"><div>ATS red-flag checklist (formatting traps that scramble parsers)</div><div class="no">—</div><div class="yes full-col">✓</div></div>
-          <div class="compare-row"><div>Downloadable .txt report</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Match score + top 10 missing keywords with exact point gains</div><div class="yes">✓</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Every missing keyword, ranked, with the posting's own sentences as proof</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Keyword playbook: what each term is, where to add it, how to phrase it</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>"Fix these first" action plan with your projected score</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Score breakdown that shows exactly what's dragging the number down</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Resume writing audit: verbs, numbers, clichés, weak phrases, line by line</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Matched-keyword stress test: which "matches" won't survive a recruiter's read</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Section checks + ATS red flags, each explained with a concrete fix</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Bonus: cover letter keyword check</div><div class="no">—</div><div class="yes full-col">✓</div></div>
+          <div class="compare-row"><div>Downloadable full report (.txt)</div><div class="no">—</div><div class="yes full-col">✓</div></div>
           <div class="compare-row"><div>Unlimited scans and rescans while you edit</div><div class="yes">✓</div><div class="yes full-col">✓</div></div>
         </div>
         <div class="locked-cta">
-          <a class="btn-buy" id="buy" href="#" target="_blank" rel="noopener">Unlock Full Report — $12 one-time</a>
+          <a class="btn-buy" id="buy" href="#" target="_blank" rel="noopener">Unlock Full Report: $12 one-time</a>
           <div class="buy-note" id="buy-note">One payment, yours forever. No subscription, no account.</div>
           <div class="key-toggle"><button class="btn-ghost" id="key-toggle" type="button">Already bought? Enter your license key</button></div>
           <div class="key-row" id="key-row">
@@ -370,35 +447,56 @@
       <div class="full" id="full">
         <div class="full-badge">✓ Full report unlocked</div>
 
-        <h3 class="section-h">All missing keywords (ranked)</h3>
-        <div class="chips" id="full-missing"></div>
+        <h3 class="section-h">Your fastest path up</h3>
+        <div id="plan"></div>
 
-        <h3 class="section-h">Matched keywords</h3>
+        <h3 class="section-h">Score breakdown <span class="hint" style="color:var(--muted);font-weight:400">(what's actually dragging the number down)</span></h3>
+        <div id="breakdown"></div>
+
+        <h3 class="section-h">All missing keywords <span class="hint" style="color:var(--muted);font-weight:400">(tap any keyword to see why it matters, where to add it, and how to phrase it)</span></h3>
+        <div id="full-missing"></div>
+
+        <h3 class="section-h">Matched keywords: the stress test</h3>
         <div class="chips" id="full-matched"></div>
+        <div id="readiness"></div>
+
+        <h3 class="section-h">Resume writing audit <span class="hint" style="color:var(--muted);font-weight:400">(your resume on its own merits, independent of this posting)</span></h3>
+        <div id="audit"></div>
 
         <h3 class="section-h">Section checks</h3>
         <div id="section-checks"></div>
 
-        <h3 class="section-h">ATS red flags</h3>
+        <h3 class="section-h">ATS red flags <span class="hint" style="color:var(--muted);font-weight:400">(each with why it hurts and how to fix it)</span></h3>
         <ul class="flag-list" id="flags"></ul>
+
+        <h3 class="section-h">Bonus: cover letter check</h3>
+        <div class="cover-box">
+          <p style="font-size:14px;color:var(--ink-2)">Cover letters are usually keyword-thin. Paste yours to score it against the same posting.</p>
+          <textarea id="cover" spellcheck="false" placeholder="Paste your cover letter text here (optional)."></textarea>
+          <div style="margin-top:10px;display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+            <button class="btn-report" id="cover-scan" type="button" style="margin-top:0">Check Cover Letter</button>
+            <button class="btn-ghost" id="cover-sample" type="button">Try it with a sample cover letter</button>
+          </div>
+          <div class="cover-result" id="cover-result"></div>
+        </div>
 
         <button class="btn-report" id="report" type="button">Download Report (.txt)</button>
         <div style="margin-top:14px"><button class="btn-ghost" id="forget" type="button">Not your computer? Forget this unlock on this device</button></div>
       </div>
     </section>
     <section class="trust" aria-label="Why this is safe to use">
-      <div class="trust-item"><b>100% in your browser</b><p>Nothing is ever uploaded. Your resume never touches a server — check the network tab if you like.</p></div>
+      <div class="trust-item"><b>100% in your browser</b><p>Nothing is ever uploaded. Your resume never touches a server. Check the network tab if you like.</p></div>
       <div class="trust-item"><b>No signup</b><p>No email, no account, no "unlock your results" trap. Paste, scan, done.</p></div>
       <div class="trust-item"><b>Free unlimited scans</b><p>Scan every job you apply to. The free version stays free.</p></div>
     </section>
   </main>
 
   <footer>
-    <p><strong style="color:var(--ink-2)">Privacy:</strong> nothing you paste is ever sent anywhere — scoring runs entirely in your browser. The only network request this page can make is the one-time license check if you buy the full report. If you unlock, that unlock (including your license key) is remembered in this browser's local storage so you never re-enter it — on a shared computer, use the "forget this unlock" link in the full report when you're done.</p>
+    <p><strong style="color:var(--ink-2)">Privacy:</strong> nothing you paste is ever sent anywhere, because scoring runs entirely in your browser. The only network request this page can make is the one-time license check if you buy the full report. If you unlock, that unlock (including your license key) is remembered in this browser's local storage so you never have to re-enter it. On a shared computer, use the "forget this unlock" link in the full report when you're done.</p>
     <details>
       <summary>How scoring works (and what it can't tell you)</summary>
-      <p>RezGap extracts the most important keywords and phrases from the job posting (weighted by how often and how prominently they appear), then checks which ones your resume actually contains. The score is the weighted share your resume covers. It's a keyword-overlap measure — the same class of check recruiters' ATS searches rely on — not a judgment of your experience, and not a guarantee of an interview. And despite the scare stat you may have seen elsewhere, most ATS don't auto-reject resumes: they store them, and recruiters search and rank them by keywords. That search is what this score approximates. It doesn't understand synonyms: if the posting says "Google Analytics" and you wrote "web analytics tooling," add their exact words where they're true of you. Never add keywords that aren't true — the goal is translation, not fabrication.</p>
-      <p>Pricing comparison for context: the established tools in this category charge recurring subscriptions — e.g. Jobscan at $49.95/month (their published price as of July 2026, when this page was written). RezGap's full report is a single $12 purchase.</p>
+      <p>RezGap extracts the most important keywords and phrases from the job posting (weighted by how often and how prominently they appear), then checks which ones your resume actually contains. The score is the weighted share your resume covers. It measures keyword overlap, the same thing recruiters' ATS searches check for. It doesn't judge your experience, and it can't guarantee an interview. And despite the scare stat you may have seen elsewhere, most ATS don't auto-reject resumes. They store them, and recruiters search and rank them by keywords. That search is what this score approximates. It also doesn't understand synonyms: if the posting says "Google Analytics" and you wrote "web analytics tooling," add their exact words where they're true of you. Never add keywords that aren't true.</p>
+      <p>Pricing comparison for context: the established tools in this category charge recurring subscriptions (Jobscan was at $49.95/month as of July 2026, when this page was written). RezGap's full report is a single $12 purchase.</p>
     </details>
     <p>Questions or unlock issues: <a href="mailto:rezgapbiz@rezgap.com">rezgapbiz@rezgap.com</a> (include your Gumroad receipt for a manual unlock).</p>
   </footer>
@@ -476,15 +574,78 @@ var RG = (function () {
     return out;
   }
 
-  function segments(text) {
-    var t = text.replace(/\.(?=\s|$)/g, "\n");
-    t = t.replace(/[,;:!?()\[\]{}|]/g, "\n");
-    var parts = t.split("\n");
+  // JD section-header patterns for evidence buckets (checked in array order —
+  // "preferred qualifications" must classify as preferred, not requirements).
+  // Keep bit-exact with BUCKET_CHECKS in tools/verify_score.py.
+  var BUCKET_CHECKS = [
+    ["preferred", /^(preferred\b|nice[ \t-]+to[ \t-]+haves?\b|bonus\b|plus(es)?\b|great[ \t-]+to[ \t-]+have\b|it['’]?s[ \t]+a[ \t]+plus\b)/i],
+    ["requirements", /^(requirements?\b|qualifications?\b|must[ \t-]+haves?\b|what[ \t]+you(['’]?ll)?[ \t]+(need|bring)\b|who[ \t]+you[ \t]+are\b|about[ \t]+you\b|what[ \t]+we['’]?re[ \t]+looking[ \t]+for\b|your[ \t]+background\b)/i],
+    ["responsibilities", /^(responsibilit|duties\b|what[ \t]+you['’]?ll[ \t]+(do\b|be[ \t]+doing)|the[ \t]+role\b|your[ \t]+(role|mission)\b|day[ \t-]+to[ \t-]+day\b|you[ \t]+will\b)/i]
+  ];
+
+  // Astral characters (emoji etc.) are 2 UTF-16 units in JS but 1 codepoint in
+  // Python — strip them before any length/index math so both engines agree and
+  // slice() can never bisect a surrogate pair. Keep in sync with verify_score.py.
+  function stripAstral(s) {
+    return s.replace(/[\uD800-\uDFFF]/g, "");
+  }
+
+  function headerBucket(line) {
+    line = stripAstral(line);
+    // header-shaped: not a bullet, not a sentence (no trailing period), short
+    if (/^[ \t]*([-*•●▪➤]|[0-9]+[.)])[ \t]/.test(line)) return null;
+    var t = line.replace(/^[ \t]+/, "").replace(/[ \t\r]+$/, "");
+    if (!t) return null;
+    if (t.charAt(t.length - 1) === ".") return null;
+    var endsColon = t.charAt(t.length - 1) === ":";
+    var stripped = endsColon ? t.slice(0, -1).replace(/[ \t]+$/, "") : t;
+    if (stripped.length > 60) return null;
+    if (!endsColon && stripped.split(/[ \t]+/).length > 8) return null;
+    for (var b = 0; b < BUCKET_CHECKS.length; b++) {
+      if (BUCKET_CHECKS[b][1].test(stripped)) return BUCKET_CHECKS[b][0];
+    }
+    return null;
+  }
+
+  // (segment, bucket) pairs. Line-by-line version of the original segments()
+  // split — order-identical (newlines were already split points) — carrying a
+  // requirements/responsibilities/preferred bucket state from detected headers.
+  function segmentsWithMeta(text) {
     var out = [];
-    for (var j = 0; j < parts.length; j++) {
-      if (/\S/.test(parts[j])) out.push(parts[j]);
+    var bucket = "general";
+    var lines = text.split("\n");
+    for (var li = 0; li < lines.length; li++) {
+      var hb = headerBucket(lines[li]);
+      if (hb) bucket = hb;
+      var t = lines[li].replace(/\.(?=\s|$)/g, "\n");
+      t = t.replace(/[,;:!?()\[\]{}|]/g, "\n");
+      var parts = t.split("\n");
+      for (var pi = 0; pi < parts.length; pi++) {
+        if (/\S/.test(parts[pi])) out.push([parts[pi], bucket]);
+      }
     }
     return out;
+  }
+
+  function segments(text) {
+    var sm = segmentsWithMeta(text);
+    var out = [];
+    for (var j = 0; j < sm.length; j++) out.push(sm[j][0]);
+    return out;
+  }
+
+  // Display form of an evidence segment: collapse ASCII whitespace, strip
+  // leading bullet markers, cap at ~180 chars on a word boundary.
+  function evText(raw) {
+    var t = stripAstral(raw).replace(/[ \t\r\f\v]+/g, " ");
+    t = t.replace(/^ +| +$/g, "");
+    t = t.replace(/^[-*•●▪➤]+ */, "");
+    if (t.length > 180) {
+      var cut = t.lastIndexOf(" ", 177);
+      if (cut < 60) cut = 177;
+      t = t.slice(0, cut) + "…";
+    }
+    return t;
   }
 
   function joined(text) {
@@ -504,27 +665,30 @@ var RG = (function () {
 
   function jdCandidates(jdText) {
     var freq = Object.create(null), size = Object.create(null), firstPos = Object.create(null);
+    var evIdx = Object.create(null); // candidate -> first (up to 2 distinct) segment indices
 
-    function add(cand, ngramSize, pos) {
+    function add(cand, ngramSize, pos, segIndex) {
       freq[cand] = (freq[cand] || 0) + 1;
-      if (!(cand in size)) { size[cand] = ngramSize; firstPos[cand] = pos; }
+      if (!(cand in size)) { size[cand] = ngramSize; firstPos[cand] = pos; evIdx[cand] = []; }
+      var ev = evIdx[cand];
+      if (ev.length < 2 && ev[ev.length - 1] !== segIndex) ev.push(segIndex);
     }
 
-    var segs = segments(jdText);
+    var sm = segmentsWithMeta(jdText);
     var gpos = 0;
-    for (var s = 0; s < segs.length; s++) {
-      var W = tokens(segs[s]);
+    for (var s = 0; s < sm.length; s++) {
+      var W = tokens(sm[s][0]);
       var n = W.length;
       var j;
       for (j = 0; j < n; j++) {
-        if (!EXCLUDE[W[j]] && W[j].length >= 2) add(W[j], 1, gpos + j);
+        if (!EXCLUDE[W[j]] && W[j].length >= 2) add(W[j], 1, gpos + j, s);
       }
       for (j = 0; j < n - 1; j++) {
-        if (!EXCLUDE[W[j]] && !EXCLUDE[W[j + 1]]) add(W[j] + " " + W[j + 1], 2, gpos + j);
+        if (!EXCLUDE[W[j]] && !EXCLUDE[W[j + 1]]) add(W[j] + " " + W[j + 1], 2, gpos + j, s);
       }
       for (j = 0; j < n - 2; j++) {
         if (!EXCLUDE[W[j]] && !EXCLUDE[W[j + 1]] && !EXCLUDE[W[j + 2]]) {
-          add(W[j] + " " + W[j + 1] + " " + W[j + 2], 3, gpos + j);
+          add(W[j] + " " + W[j + 1] + " " + W[j + 2], 3, gpos + j, s);
         }
       }
       gpos += n;
@@ -550,16 +714,20 @@ var RG = (function () {
       var cand = scored[k][0], sc = scored[k][1];
       var clash = false;
       for (var m = 0; m < accepted.length; m++) {
-        var acc = accepted[m][0];
+        var acc = accepted[m].cand;
         if (contains(cand, acc) || contains(acc, cand)) { clash = true; break; }
       }
       if (!clash && cand.indexOf(" ") === -1) {
         for (var m2 = 0; m2 < accepted.length; m2++) {
-          var acc2 = accepted[m2][0];
+          var acc2 = accepted[m2].cand;
           if (acc2.indexOf(" ") === -1 && stem(acc2) === stem(cand)) { clash = true; break; }
         }
       }
-      if (!clash) accepted.push([cand, sc]);
+      if (!clash) {
+        var evs = evIdx[cand], evArr = [];
+        for (var e = 0; e < evs.length; e++) evArr.push(evText(sm[evs[e]][0]));
+        accepted.push({ cand: cand, weight: sc, freq: freq[cand], bucket: sm[evs[0]][1], evidence: evArr });
+      }
       if (accepted.length === TOP_N_CANDIDATES) break;
     }
     return accepted;
@@ -584,27 +752,53 @@ var RG = (function () {
     return PARTIAL_PHRASE_CREDIT;
   }
 
+  // frac = weight ratio in [0,1] -> 0-100 int, half-up (bit-exact with Python)
+  function roundScore(frac) {
+    var raw = frac * 100;
+    if (raw < 0) raw = 0;
+    if (raw > 100) raw = 100;
+    return Math.floor(raw + 0.5);
+  }
+
   function scan(resumeText, jdText) {
     var universe = jdCandidates(jdText);
     var resumeJoined = joined(resumeText);
     var resumeStems = stemSet(resumeText);
 
     var matchedWeight = 0.0, totalWeight = 0.0;
-    var missing = [], matched = [];
+    var missing = [], matched = [], detail = [];
     for (var j = 0; j < universe.length; j++) {
-      var cand = universe[j][0], w = universe[j][1];
-      totalWeight += w;
-      var credit = matchCredit(cand, resumeJoined, resumeStems);
-      matchedWeight += w * credit;
-      if (credit === 1.0) matched.push(cand);
-      else missing.push(cand);
+      var u = universe[j];
+      totalWeight += u.weight;
+      var credit = matchCredit(u.cand, resumeJoined, resumeStems);
+      matchedWeight += u.weight * credit;
+      detail.push({ cand: u.cand, weight: u.weight, credit: credit, freq: u.freq, bucket: u.bucket, evidence: u.evidence });
+      if (credit === 1.0) matched.push(u.cand);
+      else missing.push(u.cand);
     }
 
-    var raw = totalWeight > 0 ? (matchedWeight / totalWeight) * 100 : 0;
-    if (raw < 0) raw = 0;
-    if (raw > 100) raw = 100;
-    var score = Math.floor(raw + 0.5);
-    return { score: score, missing: missing, matched: matched, universeSize: universe.length };
+    var score = totalWeight > 0 ? roundScore(matchedWeight / totalWeight) : 0;
+    return { score: score, missing: missing, matched: matched, universeSize: universe.length,
+             detail: detail, totalWeight: totalWeight, matchedWeight: matchedWeight };
+  }
+
+  // Exact score-projection math on a scan() result. perKeyword[i] pairs with
+  // missing[i]; cumulative's last element is 100 by construction.
+  function gains(res) {
+    var total = res.totalWeight;
+    if (!(total > 0)) return { perKeyword: [], cumulative: [] };
+    var base = res.matchedWeight;
+    var per = [], cumulative = [];
+    var cum = base;
+    for (var j = 0; j < res.detail.length; j++) {
+      var d = res.detail[j];
+      if (d.credit === 1.0) continue;
+      var lift = d.weight * (1 - d.credit);
+      per.push({ cand: d.cand, gain: roundScore((base + lift) / total) - res.score });
+      cum += lift;
+      cumulative.push(roundScore(cum / total));
+    }
+    return { perKeyword: per, cumulative: cumulative };
   }
 
   // [ \t] instead of \s (JS \s matches NBSP; Python side uses re.ASCII + [ \t]
@@ -643,12 +837,12 @@ var RG = (function () {
         if (/[ \t]{4,}/.test(lines[L2])) wide++;
       }
       if (wide / lines.length > 0.15) {
-        flags.push("Possible table or multi-column layout detected — ATS parsers often scramble these into the wrong order.");
+        flags.push("Possible table or multi-column layout detected. ATS parsers often scramble these into the wrong order.");
       }
     }
-    if (/[●▪➤✓✦◆]/.test(resumeText)) flags.push("Non-standard bullet characters detected — some ATS parsers drop or garble these.");
+    if (/[●▪➤✓✦◆]/.test(resumeText)) flags.push("Non-standard bullet characters detected. Some ATS parsers drop or garble these.");
     if (toks.length < 150) flags.push("Resume looks unusually short for reliable ATS parsing.");
-    if (toks.length > 1200) flags.push("Resume may be too long (roughly 2+ pages) — most ATS and recruiters skim, not read.");
+    if (toks.length > 1200) flags.push("Resume may be too long (roughly 2+ pages). Most recruiters skim rather than read.");
     // acronyms (AWS, SQL, CI/CD…) are normal resume vocabulary: only all-caps
     // runs of 5+ letters count as shouting
     var rawWords = resumeText.split(/[ \t\n\r\f\v]+/);
@@ -661,21 +855,720 @@ var RG = (function () {
       }
     }
     if (cased && caps / cased > 0.05) {
-      flags.push("Excessive capitalization detected — may trigger ATS formatting warnings or read as shouting to a human reviewer.");
+      flags.push("Excessive capitalization detected. It can trip ATS formatting checks, and to a human reviewer it reads as shouting.");
     }
     return flags;
   }
 
   return {
     scan: scan,
+    gains: gains,
     redFlags: redFlags,
     sectionChecks: sectionChecks,
     tokens: tokens,
     stem: stem,
-    jdCandidates: jdCandidates
+    joined: joined,
+    stemSet: stemSet,
+    matchCredit: matchCredit,
+    jdCandidates: jdCandidates,
+    sectionPatterns: SECTION_CHECKS
   };
 })();
 if (typeof module !== "undefined" && module.exports) module.exports = RG;
+</script>
+
+<!-- ============ DATA — bundled word lists + advice templates (enrichment layer only; NOT part of the bit-exact scoring core) ============ -->
+<script id="rg-data">
+var RG_DATA = {
+  "certTerms": [
+    "pmp", "cpa", "cfa", "cfa charterholder", "cissp", "cisa", "cism", "crisc",
+    "shrm-cp", "shrm-scp", "aws certified", "aws certified solutions architect",
+    "aws certified developer", "aws certified sysops administrator",
+    "azure certified", "azure fundamentals", "azure administrator",
+    "google cloud certified", "google cloud architect", "comptia",
+    "comptia security+", "comptia network+", "comptia a+", "ccna", "ccnp", "ccie",
+    "six sigma", "six sigma black belt", "six sigma green belt",
+    "six sigma yellow belt", "lean six sigma", "csm", "csp", "safe agilist",
+    "pmi-acp", "capm", "prince2", "itil", "itil foundation", "cfp", "frm", "cma",
+    "cia", "cfe", "cpp", "chfc", "clu", "cebs", "ceh", "oscp", "security+",
+    "network+", "pe license", "professional engineer", "rn", "lpn", "bsn", "msn",
+    "cna", "cpr certified", "bls certified", "acls", "phr", "sphr", "series 7",
+    "series 63", "series 65", "series 66", "series 24", "cpim", "apics",
+    "google ads certification", "google analytics certified", "hubspot certified",
+    "salesforce certified", "salesforce administrator certified",
+    "facebook blueprint certified", "hootsuite certified",
+    "digital marketing certification", "osha certified", "osha 30", "osha 10",
+    "cdl", "cdl license", "notary public", "real estate license",
+    "insurance license", "jd", "md", "pharmd", "rph"
+  ],
+  "methodologyTerms": [
+    "agile", "scrum", "kanban", "lean", "waterfall", "six sigma",
+    "lean six sigma", "ci/cd", "tdd", "bdd", "devops", "devsecops", "okrs",
+    "kpis", "a/b testing", "design thinking", "dmaic", "gaap", "ifrs", "sox",
+    "sox compliance", "hipaa", "pci dss", "gdpr", "ccpa", "iso 9001",
+    "iso 27001", "seo", "sem", "crm", "erp", "sprint planning", "safe framework",
+    "extreme programming", "pair programming", "code review",
+    "continuous integration", "continuous deployment", "root cause analysis",
+    "five whys", "kaizen", "just in time", "total quality management",
+    "balanced scorecard", "swot analysis", "pestle analysis",
+    "value stream mapping", "disciplined agile", "lean manufacturing",
+    "lean startup", "minimum viable product", "growth hacking",
+    "inbound marketing", "content marketing", "account based marketing",
+    "omnichannel", "conversion rate optimization", "change management",
+    "stage gate", "waterfall methodology"
+  ],
+  "softSkillTerms": [
+    "communication", "verbal communication", "written communication",
+    "leadership", "collaboration", "teamwork", "problem solving",
+    "time management", "stakeholder management", "attention to detail",
+    "adaptability", "critical thinking", "interpersonal skills",
+    "active listening", "conflict resolution", "decision making",
+    "emotional intelligence", "creativity", "flexibility", "work ethic",
+    "organizational skills", "multitasking", "prioritization", "negotiation",
+    "mentoring", "coaching", "public speaking", "presentation skills",
+    "relationship building", "client relations", "customer service",
+    "cross-functional collaboration", "team building", "delegation",
+    "accountability", "initiative", "resourcefulness", "empathy", "patience",
+    "self motivation", "resilience", "growth mindset", "analytical thinking",
+    "strategic thinking", "listening skills", "interpersonal communication",
+    "cultural awareness", "diversity and inclusion", "change management skills",
+    "influencing", "persuasion", "facilitation", "collaborative mindset",
+    "customer focus", "client management", "team leadership",
+    "people management", "cross-team collaboration",
+    "verbal and written communication", "professionalism", "reliability",
+    "dependability", "open mindedness", "constructive feedback", "goal setting"
+  ],
+  "toolTerms": [
+    "python", "java", "javascript", "typescript", "c++", "c#", "sql", "notion",
+    "ruby", "php", "golang", "rust", "swift", "kotlin", "scala", "html", "css",
+    "react", "angular", "vue", "node.js", "django", "flask", "spring", ".net",
+    "ruby on rails", "aws", "azure", "gcp", "docker", "kubernetes", "git",
+    "github", "gitlab", "jenkins", "terraform", "ansible", "linux", "unix",
+    "bash", "powershell", "rest api", "graphql", "mongodb", "postgresql",
+    "mysql", "oracle", "redis", "kafka", "spark", "hadoop", "snowflake",
+    "databricks", "airflow", "tableau", "power bi", "looker", "qlik", "excel",
+    "google sheets", "sas", "spss", "stata", "matlab", "alteryx", "jupyter",
+    "pandas", "numpy", "tensorflow", "pytorch", "scikit-learn", "salesforce",
+    "hubspot", "marketo", "pardot", "mailchimp", "constant contact", "zendesk",
+    "freshdesk", "servicenow", "jira", "confluence", "asana", "trello",
+    "monday.com", "basecamp", "smartsheet", "ms project", "primavera", "slack",
+    "microsoft teams", "zoom", "sharepoint", "sap", "sap erp", "netsuite",
+    "oracle netsuite", "workday", "adp", "quickbooks", "xero", "sage",
+    "peoplesoft", "bloomberg terminal", "factset", "capital iq", "figma",
+    "sketch", "adobe photoshop", "adobe illustrator", "adobe xd", "invision",
+    "canva", "google analytics", "google ads", "google tag manager", "semrush",
+    "ahrefs", "moz", "hootsuite", "buffer", "sprout social", "shopify",
+    "woocommerce", "magento", "bigcommerce", "stripe", "paypal", "square",
+    "docusign", "box", "dropbox", "google drive", "outlook", "microsoft word",
+    "powerpoint", "visio", "autocad", "solidworks", "revit", "minitab"
+  ],
+  "actionVerbs": [
+    "lead", "led", "direct", "directed", "manage", "managed", "oversee",
+    "oversaw", "spearhead", "spearheaded", "orchestrate", "orchestrated",
+    "mentor", "mentored", "coach", "coached", "chair", "chaired", "supervise",
+    "supervised", "guide", "guided", "drive", "drove", "head", "headed",
+    "delegate", "delegated", "empower", "empowered", "cultivate", "cultivated",
+    "present", "presented", "negotiate", "negotiated", "author", "authored",
+    "facilitate", "facilitated", "communicate", "communicated", "articulate",
+    "articulated", "persuade", "persuaded", "advocate", "advocated", "brief",
+    "briefed", "liaise", "liaised", "publish", "published", "write", "wrote",
+    "speak", "spoke", "analyze", "analyzed", "diagnose", "diagnosed",
+    "benchmark", "benchmarked", "synthesize", "synthesized", "validate",
+    "validated", "evaluate", "evaluated", "assess", "assessed", "audit",
+    "audited", "investigate", "investigated", "research", "researched",
+    "interpret", "interpreted", "forecast", "forecasted", "achieve", "achieved",
+    "exceed", "exceeded", "generate", "generated", "deliver", "delivered",
+    "secure", "secured", "increase", "increased", "reduce", "reduced",
+    "streamline", "streamlined", "optimize", "optimized", "accelerate",
+    "accelerated", "boost", "boosted", "expand", "expanded", "grow", "grew",
+    "win", "won", "surpass", "surpassed", "maximize", "maximized", "improve",
+    "improved", "save", "saved", "build", "built", "develop", "developed",
+    "design", "designed", "launch", "launched", "engineer", "engineered",
+    "establish", "established", "pioneer", "pioneered", "found", "founded",
+    "create", "created", "construct", "constructed", "architect", "architected",
+    "initiate", "initiated", "formulate", "formulated", "automate", "automated",
+    "program", "programmed", "configure", "configured", "deploy", "deployed",
+    "migrate", "migrated", "integrate", "integrated", "implement",
+    "implemented", "debug", "debugged", "code", "coded", "test", "tested",
+    "troubleshoot", "upgrade", "upgraded", "maintain", "maintained",
+    "customize", "customized", "refactor", "refactored", "script", "scripted",
+    "query", "queried", "budget", "budgeted", "allocate", "allocated",
+    "reconcile", "reconciled", "fund", "funded", "invest", "invested",
+    "calculate", "calculated", "hold", "held", "run", "ran", "sell", "sold",
+    "teach", "taught", "bring", "brought", "make", "made"
+  ],
+  "weakOpeners": [
+    "responsible for", "duties included", "duties involved", "helped with",
+    "helped to", "helped", "worked with", "worked on", "worked as",
+    "assisted with", "assisted in", "assisted", "involved in",
+    "participated in", "tasked with", "was in charge of", "in charge of",
+    "dealt with", "handled", "contributed to", "took part in", "served as",
+    "functioned as", "utilized", "was part of"
+  ],
+  "cliches": [
+    "team player", "hard worker", "hardworking", "detail-oriented",
+    "detail oriented", "results-driven", "results driven", "go-getter",
+    "self-starter", "self starter", "outside the box", "proven track record",
+    "strong work ethic", "people person", "highly motivated", "synergy",
+    "hit the ground running", "wear many hats", "excellent communication skills",
+    "fast-paced environment"
+  ],
+  "categoryInfo": {
+    "certification": {
+      "label": "Certification",
+      "why": "Recruiters frequently search or filter candidate databases by exact certification names, so a credential you hold but never wrote down is invisible to that search.",
+      "where": "List it in a dedicated Certifications section, spelling out the full name with the acronym alongside it so both forms are searchable.",
+      "pattern": "Certified {kw}, year earned. List it word for word in a Certifications section."
+    },
+    "methodology": {
+      "label": "Methodology",
+      "why": "Naming the specific framework or methodology tells recruiters you can slot into the way the team already works, and they often search for these terms directly.",
+      "where": "Put it in your Skills section and also name it inside a relevant experience bullet where you applied it to a result.",
+      "pattern": "Applied {kw} to [process or team] and delivered [measurable outcome]."
+    },
+    "soft": {
+      "label": "Soft Skill",
+      "why": "Soft skills are weak search terms on their own since anyone can list leadership or teamwork, so a bare list entry is one of the least-trusted signals a recruiter sees; it only becomes credible when demonstrated.",
+      "where": "Never add it as a standalone list item; instead show it inside an experience bullet through a specific action and result.",
+      "pattern": "[Action verb] [situation that required {kw}], resulting in [measurable outcome]."
+    },
+    "tool": {
+      "label": "Tool",
+      "why": "Tool and platform names are close to literal search strings recruiters type into a candidate database, so an exact match matters more than a paraphrase.",
+      "where": "List it in your Skills section and also name it inside an experience bullet paired with what you built or accomplished using it.",
+      "pattern": "[Action verb] + [what you did] using {kw} + [measurable outcome]."
+    },
+    "general": {
+      "label": "Keyword",
+      "why": "This is one of the posting's own words, so using it helps your resume turn up when a recruiter searches for it.",
+      "where": "Work it naturally into the most relevant experience bullet or your summary, only if it truthfully describes work you did.",
+      "pattern": "[Action verb] {kw} to achieve [measurable outcome]."
+    }
+  },
+  "flagInfo": {
+    "No email address detected.": {
+      "why": "Recruiters and ATS systems both rely on a visible email address as the primary way to contact you, so its absence can quietly remove you from consideration.",
+      "fix": "Add a professional email address in the header of your resume, near your name."
+    },
+    "No phone number detected.": {
+      "why": "A phone number is a standard, expected contact field, and recruiters moving fast down a shortlist may skip candidates who are harder to reach.",
+      "fix": "Add a phone number in the header alongside your email address."
+    },
+    "No Skills section header found": {
+      "why": "Recruiters and ATS parsers scan for a clearly labeled Skills section as a quick way to confirm you have the keywords they are searching for.",
+      "fix": "Add a section titled exactly Skills and list your relevant tools, certifications, and methodologies there."
+    },
+    "No Experience section header found": {
+      "why": "A standard Experience header is what recruiters and parsers look for first to locate your work history and responsibilities.",
+      "fix": "Add a clearly labeled section titled Experience, or Work Experience, above your job history."
+    },
+    "No Education section header found": {
+      "why": "Education is one of the standard sections recruiters expect, and a missing or oddly labeled header can make it look absent even if you have a degree.",
+      "fix": "Add a section titled Education listing your degree, school, and graduation year."
+    },
+    "Possible table or multi-column layout detected. ATS parsers often scramble these into the wrong order.": {
+      "why": "Multi-column and table layouts read fine to a human but many ATS parsers extract the text column by column or cell by cell, jumbling dates, titles, and bullets out of order.",
+      "fix": "Rebuild the resume in a single-column layout with plain section headers and bullet lists instead of tables or text boxes."
+    },
+    "Non-standard bullet characters detected. Some ATS parsers drop or garble these.": {
+      "why": "Decorative bullet glyphs or special characters can be misread or stripped entirely by some parsers, turning your bullet points into a wall of run-on text.",
+      "fix": "Replace decorative bullets with a standard hyphen or the simple round bullet character available in your word processor."
+    },
+    "Resume looks unusually short for reliable ATS parsing.": {
+      "why": "A very short document usually means too little text for a parser or a recruiter to find the keywords and detail needed to match you to the role.",
+      "fix": "Expand your experience bullets with specific responsibilities, tools used, and measurable outcomes until each role is fully represented."
+    },
+    "Resume may be too long (roughly 2+ pages). Most recruiters skim rather than read.": {
+      "why": "Recruiters spend seconds on a first pass, so extra pages bury your best material instead of showing it off.",
+      "fix": "Cut older or less relevant roles and tighten bullets to the most impactful, results-focused lines so the resume fits one to two pages."
+    },
+    "Excessive capitalization detected. It can trip ATS formatting checks, and to a human reviewer it reads as shouting.": {
+      "why": "Long stretches of all-capital text can trip formatting checks in some parsers, and it reads as shouting to a human reviewer skimming quickly.",
+      "fix": "Use standard sentence or title case throughout, reserving capitals for acronyms and section headers only."
+    }
+  },
+  "cover": {
+    "weakSalutations": ["to whom it may concern", "to whom this may concern", "dear sir or madam",
+      "dear sir/madam", "dear madam or sir", "dear sirs", "dear sir"],
+    "genericSalutations": ["dear hiring manager", "dear hiring team", "dear human resources manager",
+      "dear human resources", "dear recruiter", "dear recruiting team"],
+    "clicheOpeners": ["i am writing to apply", "i'm writing to apply", "i am writing to express my interest",
+      "i'm writing to express my interest", "i am writing in response to", "i'm writing in response to",
+      "i am excited to apply", "i'm excited to apply", "my name is", "please accept this letter",
+      "please accept my application", "i would like to apply for", "i wish to apply for"],
+    "cliches": ["perfect fit", "perfect candidate", "dream come true", "dynamic self-starter",
+      "think outside the box", "excellent written and oral communication skills",
+      "excellent communication skills", "team player", "hard worker", "go-getter", "self-starter"],
+    "restatesResume": ["as you can see from my resume", "as you can see on my resume", "as my resume shows",
+      "as reflected in my resume", "as shown in my resume", "please see my attached resume",
+      "please see my enclosed resume"],
+    "cta": ["look forward to discussing", "look forward to speaking", "would welcome the opportunity",
+      "would welcome a", "i'd welcome", "happy to discuss", "glad to discuss", "available for an interview",
+      "available to discuss", "schedule a call", "schedule a conversation", "schedule an interview",
+      "at your convenience", "contact me at", "reach me at", "love to discuss", "would love to talk"],
+    "weakClosings": ["i hope to hear from you"],
+    "informalSignoffs": ["cheers", "thanks a ton", "take care", "warmly"]
+  },
+  "sectionInfo": {
+    "Skills": {
+      "why": "Recruiters and ATS parsers both scan for a clearly labeled Skills section as the fastest way to confirm you have the specific tools, certifications, and methodologies the posting asks for; a creative header like My Toolbox can cause it to be missed entirely."
+    },
+    "Experience": {
+      "why": "A standard Experience header is the first thing recruiters and parsers look for to locate your work history, so a nonstandard label like My Journey risks your job history being skipped or misfiled."
+    },
+    "Education": {
+      "why": "Education is a standard, expected section, and recruiters and parsers look for that exact word to find your degree information quickly rather than searching a creatively named heading."
+    }
+  }
+};
+</script>
+
+<!-- ============ ENRICHMENT — consumes RG core output + RG_DATA; UI-side deterministic analysis (E2E-tested; not part of the Python-mirrored core) ============ -->
+<script id="rg-enrich">
+var RGE = (function () {
+  "use strict";
+
+  function stemIndex(list) {
+    var s = Object.create(null), i;
+    for (i = 0; i < list.length; i++) {
+      if (list[i].indexOf(" ") === -1) s[RG.stem(list[i])] = true;
+    }
+    return s;
+  }
+  var CERT_STEMS = stemIndex(RG_DATA.certTerms);
+  var METH_STEMS = stemIndex(RG_DATA.methodologyTerms);
+  var SOFT_STEMS = stemIndex(RG_DATA.softSkillTerms);
+  var TOOL_STEMS = stemIndex(RG_DATA.toolTerms);
+  var VERB_STEMS = (function () {
+    var s = Object.create(null), i;
+    for (i = 0; i < RG_DATA.actionVerbs.length; i++) s[RG.stem(RG_DATA.actionVerbs[i])] = true;
+    return s;
+  })();
+
+  function containsTerm(cand, term) {
+    return cand === term || (" " + cand + " ").indexOf(" " + term + " ") !== -1;
+  }
+  function inList(cand, list, stems) {
+    for (var i = 0; i < list.length; i++) {
+      if (containsTerm(cand, list[i])) return true;
+    }
+    return cand.indexOf(" ") === -1 && !!stems[RG.stem(cand)];
+  }
+  // The bare words "certification"/"certified" etc. are generic JD phrasing,
+  // not a named credential — advising "Certified certification, year earned"
+  // would be nonsense. Only specific credentials get the certification card.
+  var GENERIC_CERT = { "certification": true, "certifications": true, "certificate": true,
+                       "certificates": true, "certified": true, "recertification": true };
+
+  // ordered: certification -> tool -> methodology -> soft -> general
+  // (tools before methodologies so "hubspot crm" reads as the tool, not the acronym)
+  function classify(cand) {
+    if (!GENERIC_CERT[cand] && (/certif/.test(cand) || inList(cand, RG_DATA.certTerms, CERT_STEMS))) return "certification";
+    if (inList(cand, RG_DATA.toolTerms, TOOL_STEMS)) return "tool";
+    if (inList(cand, RG_DATA.methodologyTerms, METH_STEMS)) return "methodology";
+    if (inList(cand, RG_DATA.softSkillTerms, SOFT_STEMS)) return "soft";
+    return "general";
+  }
+
+  // Bare generic English words extracted from prose-style postings (growth,
+  // decisions, maintain...) are honest score movers but deserve a compact chip,
+  // not a full advice card — the card treatment is reserved for terms with
+  // recruiter-search specificity. Presentation only; score math untouched.
+  var COMMON_WORDS = (function () {
+    var s = Object.create(null);
+    var list = ("business growth product products project projects process processes impact " +
+      "results result goals goal objectives objective strategy strategies success value values " +
+      "needs need ways way tasks task areas area levels level points point items item roles " +
+      "management intelligence background roadmap opportunities decisions decision findings " +
+      "finding insights insight recommendations recommendation stakeholders stakeholder " +
+      "customers customer clients client users user data datasets dataset tools tool systems " +
+      "system solutions solution services service platform platforms initiatives initiative " +
+      "priorities priority metrics performance quality efficiency effectiveness environment " +
+      "organization organizations department departments functions function groups group " +
+      "members member people staff leaders documentation documents document information " +
+      "content reports report reporting reviews review meetings meeting large small similar " +
+      "complex multiple key critical important successful effective efficient innovative " +
+      "modern internal external senior junior technical cross-functional identify identifying " +
+      "maintain maintaining develop developing support supporting create creating deliver " +
+      "delivering manage managing build building provide providing define defining present " +
+      "presenting partner partnering collaborate collaborating improve improving drive " +
+      "driving lead leading analyze analyzing analysis budget world record track right clear " +
+      "detailed relevant additional best better certification certifications certificate " +
+      "certificates certified").split(" ");
+    for (var i = 0; i < list.length; i++) s[list[i]] = true;
+    return s;
+  })();
+
+  function cardWorthy(cand) {
+    if (cand.indexOf(" ") !== -1) return true;
+    if (classify(cand) !== "general") return true;
+    return !COMMON_WORDS[cand] && !COMMON_WORDS[RG.stem(cand)];
+  }
+
+  // Resume section spans: only short, non-bulleted lines count as headers, so
+  // prose like "5 years of experience with..." can't start a span. First
+  // occurrence per section wins.
+  function sectionSpans(resumeText) {
+    var lines = resumeText.split("\n");
+    var found = [], seen = Object.create(null);
+    var pos = 0;
+    for (var li = 0; li < lines.length; li++) {
+      var line = lines[li];
+      var t = line.replace(/^\s+|\s+$/g, "");
+      if (t && !/^[-*•●▪➤✓✦◆]/.test(t)) {
+        // Header-shaped means: a short standalone line ("Related Experience",
+        // "Key Skills" — qualifiers welcome), or the LABEL of an inline
+        // "Skills: Python, SQL, ..." line (any length — only the label is
+        // probed, so prose like "Note: deep experience with X" or "5 years
+        // experience in Python" never becomes a section boundary).
+        var probe = null;
+        if (t.split(/\s+/).length <= 3 && t.length <= 40) {
+          probe = t;
+        } else {
+          var ci = t.indexOf(":");
+          if (ci > 0 && ci <= 24) {
+            var label = t.slice(0, ci).replace(/\s+$/, "");
+            if (label.split(/\s+/).length <= 3) probe = label;
+          }
+        }
+        if (probe) {
+          for (var p = 0; p < RG.sectionPatterns.length; p++) {
+            var name = RG.sectionPatterns[p][0];
+            if (!seen[name] && RG.sectionPatterns[p][1].test(probe)) {
+              seen[name] = true;
+              found.push({ name: name, start: pos });
+              break;
+            }
+          }
+        }
+      }
+      pos += line.length + 1;
+    }
+    found.sort(function (a, b) { return a.start - b.start; });
+    var spans = {};
+    for (var j = 0; j < found.length; j++) {
+      var end = j + 1 < found.length ? found[j + 1].start : resumeText.length;
+      spans[found[j].name] = resumeText.slice(found[j].start, end);
+    }
+    return spans;
+  }
+
+  function spanHas(cand, spanText) {
+    return RG.matchCredit(cand, RG.joined(spanText), RG.stemSet(spanText)) === 1;
+  }
+
+  // Matched-keyword stress test: full-credit matches that live only in the
+  // Skills list (never demonstrated under Experience), plus the partial-credit
+  // signal is consumed by the missing-keyword cards directly.
+  function readiness(res, resumeText) {
+    var spans = sectionSpans(resumeText);
+    var available = ("Skills" in spans) && ("Experience" in spans);
+    var listedOnly = [];
+    if (available) {
+      for (var j = 0; j < res.detail.length; j++) {
+        var d = res.detail[j];
+        if (d.credit === 1.0 && spanHas(d.cand, spans.Skills) && !spanHas(d.cand, spans.Experience)) {
+          listedOnly.push(d.cand);
+        }
+      }
+    }
+    return { available: available, listedOnly: listedOnly };
+  }
+
+  // Bullet detection: marker lines first; if a resume uses no markers, fall
+  // back to plausible achievement lines inside the Experience span.
+  function bullets(resumeText) {
+    var lines = resumeText.split("\n");
+    var out = [];
+    for (var i = 0; i < lines.length; i++) {
+      var m = /^[ \t]*([-*•●▪➤✓✦◆]|[0-9]+[.)])[ \t]+(.*)$/.exec(lines[i]);
+      if (m && /\S/.test(m[2])) out.push(m[2].replace(/\s+$/, ""));
+    }
+    // Real marker bullets always win, however few — the span fallback exists
+    // only for resumes with no markers at all.
+    if (out.length > 0) return { list: out, how: "bullet markers" };
+    var spans = sectionSpans(resumeText);
+    if (spans.Experience) {
+      var el = spans.Experience.split("\n");
+      var alt = [];
+      for (var k = 1; k < el.length; k++) {
+        var t = el[k].replace(/^\s+|\s+$/g, "");
+        if (!t) continue;
+        var wc = t.split(/\s+/).length;
+        // >= 6 words, and skip only lines carrying a DATE RANGE ("2019 – 2022",
+        // "2019 to Present") — those are title/company rows. A single year in
+        // an achievement line ("shipped X in 2022") is normal and must survive.
+        if (wc >= 6 && wc <= 40 &&
+            !/\b(19|20)[0-9]{2}\b[ \t]*(?:[-–—]|to[ \t])[ \t]*(?:(19|20)[0-9]{2}\b|present\b)/i.test(t)) alt.push(t);
+      }
+      if (alt.length) return { list: alt, how: "experience lines" };
+    }
+    return { list: [], how: "none" };
+  }
+
+  function escapeRe(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  function audit(resumeText) {
+    var B = bullets(resumeText);
+    var list = B.list;
+    var res = {
+      count: list.length, how: B.how,
+      verbOk: 0, noVerb: [], weak: [], withNumber: 0, noNumber: [],
+      passive: [], long: [], short: [],
+      cliches: [], pronounCount: 0,
+      wordCount: RG.tokens(resumeText).length
+    };
+    for (var i = 0; i < list.length; i++) {
+      var b = list[i];
+      var lower = b.toLowerCase();
+      // "Was responsible for X" / "Has been responsible for X" are the same
+      // weak pattern — strip leading auxiliaries (repeating, for chains) first
+      var lowerStart = lower.replace(/^(?:(?:was|were|is|are|had|have|has|been|being|also)[ \t]+)+/, "");
+      var weakHit = null;
+      for (var w = 0; w < RG_DATA.weakOpeners.length; w++) {
+        var wo = RG_DATA.weakOpeners[w];
+        if (lowerStart.indexOf(wo) === 0 &&
+            (lowerStart.length === wo.length || /[^a-z]/.test(lowerStart.charAt(wo.length)))) {
+          weakHit = wo;
+          break;
+        }
+      }
+      if (weakHit) res.weak.push({ text: b, phrase: weakHit });
+      var fw = (lower.match(/[a-z]+/) || [""])[0];
+      if (fw && VERB_STEMS[RG.stem(fw)] && !weakHit) res.verbOk++;
+      else res.noVerb.push(b);
+      if (/[0-9%$]/.test(b)) res.withNumber++;
+      else res.noNumber.push(b);
+      if (/\b(was|were|been|being|is|are)[ \t]+[a-z]+ed\b/i.test(b)) res.passive.push(b);
+      var wc = b.split(/\s+/).length;
+      if (wc > 40) res.long.push(b);
+      if (wc < 4) res.short.push(b);
+    }
+    for (var c = 0; c < RG_DATA.cliches.length; c++) {
+      var rx = new RegExp("\\b" + escapeRe(RG_DATA.cliches[c]) + "\\b", "gi");
+      var m2 = resumeText.match(rx);
+      if (m2) res.cliches.push({ phrase: RG_DATA.cliches[c], count: m2.length });
+    }
+    res.pronounCount = (resumeText.match(/\b(i|me|my|myself)\b/gi) || []).length;
+    return res;
+  }
+
+  // Sub-scores from data the verified core already computed.
+  function breakdown(res, flags) {
+    var uniT = 0, uniM = 0, phrT = 0, phrM = 0;
+    for (var j = 0; j < res.detail.length; j++) {
+      var d = res.detail[j];
+      if (d.cand.indexOf(" ") === -1) { uniT += d.weight; uniM += d.weight * d.credit; }
+      else { phrT += d.weight; phrM += d.weight * d.credit; }
+    }
+    return {
+      single: uniT > 0 ? Math.round((uniM / uniT) * 100) : null,
+      phrase: phrT > 0 ? Math.round((phrM / phrT) * 100) : null,
+      cleanChecks: 10 - flags.length
+    };
+  }
+
+  // Fastest-path plan: top 3 by exact score lift (not list order — partial
+  // credits make those differ), with an exact projected score.
+  function actionPlan(res) {
+    if (!(res.totalWeight > 0)) return { top: [], projected: res.score };
+    var per = [];
+    for (var j = 0; j < res.detail.length; j++) {
+      var d = res.detail[j];
+      if (d.credit === 1.0) continue;
+      per.push({ cand: d.cand, lift: d.weight * (1 - d.credit), order: j });
+    }
+    per.sort(function (a, b) { return b.lift - a.lift || a.order - b.order; });
+    var top = per.slice(0, 3);
+    var sum = 0;
+    for (var k = 0; k < top.length; k++) sum += top[k].lift;
+    var raw = ((res.matchedWeight + sum) / res.totalWeight) * 100;
+    if (raw < 0) raw = 0;
+    if (raw > 100) raw = 100;
+    var projected = Math.floor(raw + 0.5);
+    var out = [];
+    for (var t = 0; t < top.length; t++) {
+      var one = ((res.matchedWeight + top[t].lift) / res.totalWeight) * 100;
+      if (one > 100) one = 100;
+      out.push({ cand: top[t].cand, gain: Math.floor(one + 0.5) - res.score });
+    }
+    return { top: out, projected: projected };
+  }
+
+  // Cover-letter-specific checks. Rules and word lists distilled from SHRM,
+  // Indeed, MIT CAPD, Jobscan, TopResume, Forbes, and university career centers
+  // (see research/cover-letter-checks-2026-07-23 in the project notes).
+  // Everything here is a heuristic on pasted text; advice copy stays hedged.
+  function firstMatch(str, list) {
+    for (var i = 0; i < list.length; i++) {
+      if (new RegExp("\\b" + escapeRe(list[i]) + "\\b").test(str)) return list[i];
+    }
+    return null;
+  }
+
+  function coverAudit(coverText, resumeText, jdText) {
+    var CV = RG_DATA.cover;
+    var advice = [];
+    // normalize once up front: CRLF -> LF, and typographic apostrophes -> ' so
+    // pasted Word/Google Docs text ("I’d", "I’m") matches the phrase lists
+    coverText = coverText.replace(/\r\n?/g, "\n").replace(/[‘’ʼ]/g, "'");
+    if (jdText) jdText = jdText.replace(/\r\n?/g, "\n");
+    var lower = coverText.toLowerCase();
+
+    // find the greeting line anywhere near the top (an address/date block
+    // before "Dear ..." is normal block-letter format, not a missing greeting)
+    var gm = /^[ \t]*(dear\b|hi\b|hello\b|hey\b|greetings\b|good (morning|afternoon|evening)\b|to whom\b)[^\n]*/im.exec(coverText.slice(0, 500));
+    var salLine = gm ? gm[0].toLowerCase() : "";
+    var weakSal = gm ? firstMatch(salLine, CV.weakSalutations) : null;
+    if (weakSal) {
+      advice.push({ level: "warn", text: "“" + weakSal + "” reads dated and generic. Use the hiring manager's name if you can find it; “Dear Hiring Manager” is the safer fallback." });
+    } else if (gm && firstMatch(salLine, CV.genericSalutations)) {
+      advice.push({ level: "note", text: "“Dear Hiring Manager” is fine, but a named person reads stronger. A minute on LinkedIn or the company site often turns one up." });
+    } else if (!gm) {
+      advice.push({ level: "note", text: "No greeting line found. Cover letters usually open with “Dear ...”, so consider adding one." });
+    }
+
+    // opener cliche: the first thing said after the greeting line (or from the
+    // top when there is no greeting)
+    var body = gm ? coverText.slice(gm.index + gm[0].length) : coverText;
+    var bodyStart = body.replace(/^\s+/, "").toLowerCase().slice(0, 80);
+    for (var o = 0; o < CV.clicheOpeners.length; o++) {
+      if (bodyStart.indexOf(CV.clicheOpeners[o]) === 0) {
+        advice.push({ level: "warn", text: "The opener “" + CV.clicheOpeners[o] + "...” is one of the most common lines in cover letters, and it blends in. Lead with something only you could say: a specific result, a mutual connection, or a concrete reason you want this job." });
+        break;
+      }
+    }
+
+    // pointing the reader back at the resume
+    var rp = firstMatch(lower, CV.restatesResume);
+    if (rp) {
+      advice.push({ level: "warn", text: "“" + rp + "” points the reader back to the resume. Use this space for context or a story the resume can't tell." });
+    }
+
+    // cover-letter cliches
+    var hits = [];
+    for (var c = 0; c < CV.cliches.length; c++) {
+      if (new RegExp("\\b" + escapeRe(CV.cliches[c]) + "\\b", "i").test(coverText)) hits.push("“" + CV.cliches[c] + "”");
+    }
+    if (hits.length) {
+      advice.push({ level: "warn", text: "Recruiters skim past stock phrases like " + hits.join(", ") + ". Swap each for one specific proof point." });
+    }
+
+    // near-verbatim overlap with the resume (7-token shingles)
+    if (resumeText) {
+      var rt = RG.tokens(resumeText), ct = RG.tokens(coverText);
+      var shingles = Object.create(null);
+      for (var j = 0; j + 7 <= rt.length; j++) shingles[rt.slice(j, j + 7).join(" ")] = true;
+      for (var k = 0; k + 7 <= ct.length; k++) {
+        if (shingles[ct.slice(k, k + 7).join(" ")]) {
+          advice.push({ level: "note", text: "Part of this letter repeats your resume nearly word for word. The letter works harder when it adds the why behind the bullet instead of restating it." });
+          break;
+        }
+      }
+    }
+
+    // at least one number
+    if (!/[0-9%$]/.test(coverText)) {
+      advice.push({ level: "note", text: "There isn't a single number in the letter. One concrete figure (a percentage, dollar amount, or count) makes a claim much easier to believe." });
+    }
+
+    // job title named (only when the posting's first line looks like a title,
+    // and skipping lines that look like a company name, URL, or email instead)
+    if (jdText) {
+      var jdLines = jdText.split("\n");
+      var firstLine = "";
+      for (var f = 0; f < jdLines.length; f++) {
+        if (/\S/.test(jdLines[f])) { firstLine = jdLines[f].replace(/^\s+|\s+$/g, ""); break; }
+      }
+      var companyish = /\b(inc|llc|ltd|corp|corporation|company|co|gmbh|plc)\.?$/i.test(firstLine) ||
+                       firstLine.indexOf("@") !== -1 || /https?:|www\./i.test(firstLine);
+      if (firstLine && !companyish && firstLine.length <= 60 &&
+          RG.tokens(firstLine).length > 0 && RG.tokens(firstLine).length <= 6 &&
+          lower.indexOf(firstLine.toLowerCase()) === -1) {
+        advice.push({ level: "note", text: "The posting's first line (“" + firstLine + "”) never shows up in the letter. If that's the job title, name the exact role early so the letter reads clearly tied to this job." });
+      }
+    }
+
+    // "I" sentence-start density (qualitative guidance from career centers;
+    // the majority threshold is our own operationalization, so the copy hedges)
+    var sentences = body.split(/[.!?]+\s+/);
+    var iStarts = 0, counted = 0;
+    for (var s = 0; s < sentences.length; s++) {
+      var t = sentences[s].replace(/^\s+/, "");
+      if (!t) continue;
+      counted++;
+      if (/^i\b/i.test(t) || /^i['’]/i.test(t)) iStarts++;
+    }
+    if (counted >= 4 && iStarts / counted > 0.5) {
+      advice.push({ level: "note", text: "More than half of the sentences start with “I.” Reword a few so they open with the action, the result, or the company instead." });
+    }
+
+    // closing ask: the phrase list catches stock wording; the looser pattern
+    // catches natural paraphrases ("Could we set up a fifteen-minute call?")
+    var CTA_LOOSE = /\b(set up|schedule|arrange|book)\b[^.!?\n]{0,40}\b(call|chat|meeting|conversation|time|interview)\b|\b(could we|can we|shall we)\b[^.!?\n]{0,50}\b(call|chat|meet|talk|connect|discuss)\b|\b(would|could|happy|glad|love|welcome|available)\b[^.!?\n]{0,50}\b(call|chat|meet(ing)?|talk|discuss(ing)?|connect|interview|conversation)\b/i;
+    if (!firstMatch(lower, CV.cta) && !CTA_LOOSE.test(lower)) {
+      if (firstMatch(lower, CV.weakClosings)) {
+        advice.push({ level: "note", text: "“I hope to hear from you” reads passive on its own. Pair it with a specific ask, like requesting a short call." });
+      } else {
+        advice.push({ level: "note", text: "The letter never asks for a next step. Close with a clear one, like requesting a short call or interview." });
+      }
+    }
+
+    // sign-off tone: only flag when the phrase IS the sign-off line (one of the
+    // last two non-empty lines), never when it appears inside a sentence
+    var tailLines = [];
+    var allLines = coverText.split("\n");
+    for (var tl = allLines.length - 1; tl >= 0 && tailLines.length < 2; tl--) {
+      if (/\S/.test(allLines[tl])) tailLines.push(allLines[tl]);
+    }
+    for (var ti = 0; ti < tailLines.length; ti++) {
+      var inf = null;
+      for (var ii = 0; ii < CV.informalSignoffs.length; ii++) {
+        if (new RegExp("^[ \\t]*" + escapeRe(CV.informalSignoffs[ii]) + "[ \\t]*[,.!]?[ \\t]*$", "i").test(tailLines[ti])) {
+          inf = CV.informalSignoffs[ii];
+          break;
+        }
+      }
+      if (inf) {
+        advice.push({ level: "note", text: "“" + inf + "” reads casual for a cover letter. “Sincerely” or “Best regards” are safer." });
+        break;
+      }
+    }
+
+    // length bands (250-400 sweet spot per ResumeGenius/MIT/Monster)
+    var wc = RG.tokens(coverText).length;
+    if (wc < 150) advice.push({ level: "warn", text: wc + " words is thin for a cover letter. Aim for 250 to 400: enough room for one strong example and a clear ask." });
+    else if (wc < 250) advice.push({ level: "note", text: wc + " words runs a bit short. The sweet spot is 250 to 400, which leaves room for one more concrete example." });
+    else if (wc > 500) advice.push({ level: "warn", text: wc + " words runs past a page. Cut it back toward 400; recruiters skim letters even harder than resumes." });
+    else if (wc > 400) advice.push({ level: "note", text: wc + " words is getting long. Tightening toward 400 keeps it comfortably on one page." });
+
+    // paragraph shape: count real paragraphs (15+ words), so the salutation
+    // and sign-off lines don't skew the count
+    var blocks = coverText.split(/\n[ \t]*\n/);
+    var paras = 0;
+    for (var b2 = 0; b2 < blocks.length; b2++) {
+      if (/\S/.test(blocks[b2]) && blocks[b2].split(/\s+/).length >= 15) paras++;
+    }
+    if (paras <= 1) advice.push({ level: "note", text: "It reads as one solid block. Three or four short paragraphs (intro, one or two proof paragraphs, closing) is the standard shape." });
+    else if (paras >= 6) advice.push({ level: "note", text: paras + " paragraphs is a lot for one page. Merging a few keeps the strongest material from getting lost." });
+
+    return { advice: advice, wordCount: wc };
+  }
+
+  return {
+    classify: classify,
+    cardWorthy: cardWorthy,
+    sectionSpans: sectionSpans,
+    readiness: readiness,
+    bullets: bullets,
+    audit: audit,
+    breakdown: breakdown,
+    actionPlan: actionPlan,
+    coverAudit: coverAudit
+  };
+})();
 </script>
 
 <!-- ============ UI ============ -->
@@ -725,6 +1618,8 @@ if (typeof module !== "undefined" && module.exports) module.exports = RG;
   var SAMPLE_RESUME = "Taylor Morgan\nMarketing Assistant\ntaylor.morgan@email.com | 555-201-8842\n\nProfessional Experience\nMarketing Assistant, Brightline Media\n- Wrote and scheduled email campaigns for a subscriber list of 40,000 readers\n- Managed Instagram and LinkedIn accounts, growing followers 30% in one year\n- Drafted blog posts and coordinated with freelance designers and writers on social graphics\n- Followed brand guidelines across every campaign asset and template\n- Tracked campaign performance in spreadsheets and reported results monthly\n- Organized product launch events and coordinated vendor logistics\n\nMarketing Intern, Copper Kettle Co.\n- Supported weekly newsletter production and proofread landing pages\n- Helped plan influencer outreach and compiled engagement reports\n\nEducation\nB.A. Communications, State University\n\nSkills\nEmail marketing, copywriting, social media management, event planning,\ncontent writing, brand voice, project coordination";
   var SAMPLE_JD = "Marketing Coordinator\n\nWe're looking for a Marketing Coordinator to run day-to-day campaign execution.\n\nResponsibilities:\n- Build and schedule email campaigns in HubSpot and keep the HubSpot CRM clean\n- Report performance in Google Analytics and turn Google Analytics data into recommendations\n- Launch and optimize Google Ads campaigns within budget\n- Improve organic traffic through SEO best practices and SEO-driven content briefs\n- Run A/B testing on landing pages and email subject lines\n- Design social graphics in Canva following brand guidelines\n- Own the social media content calendar across Instagram and LinkedIn\n- Coordinate with designers and writers to keep campaigns on schedule\n\nRequirements:\n- Hands-on HubSpot experience and comfort with Google Analytics\n- Working knowledge of Google Ads, SEO, and A/B testing\n- Strong Canva design instincts and social media content calendar ownership\n- Excellent writing and organization";
 
+  var SAMPLE_COVER = "Dear Hiring Manager,\n\nI am writing to express my interest in the Marketing Coordinator position. I have spent the past two years running day-to-day marketing support at a media company, and this role feels like the natural next step.\n\nIn my current position I write and schedule email campaigns, manage Instagram and LinkedIn accounts, and draft blog posts alongside freelance designers and writers. I follow brand guidelines closely and keep every campaign asset on schedule, even in busy launch weeks. I also design social graphics in Canva when the design team is stretched thin. Last spring I helped coordinate a product launch event and handled vendor logistics from start to finish.\n\nYour posting mentions owning the social media content calendar and reporting on campaign performance. Both are already part of my weekly routine, and I enjoy planning content ahead and adjusting based on what the results say.\n\nI would welcome the opportunity to discuss how I can support your campaigns. Thank you for considering my application.\n\nSincerely,\nTaylor Morgan";
+
   $("sample").addEventListener("click", function () {
     resumeEl.value = SAMPLE_RESUME;
     jdEl.value = SAMPLE_JD;
@@ -734,9 +1629,9 @@ if (typeof module !== "undefined" && module.exports) module.exports = RG;
 
   // ---------- scan + money screen ----------
   var BANDS = [
-    { min: 75, color: "var(--good)",     hex: "#0ca30c", verdict: "Strong match — you speak the posting's language." },
-    { min: 50, color: "var(--warning)",  hex: "#fab219", verdict: "You're close — a few of their words matter." },
-    { min: 0,  color: "var(--critical)", hex: "#d03b3b", verdict: "Low match — hard to find in a recruiter search." }
+    { min: 75, color: "var(--good)",     hex: "#0ca30c", verdict: "Strong match. You speak the posting's language." },
+    { min: 50, color: "var(--warning)",  hex: "#fab219", verdict: "You're close. A few of their words still matter." },
+    { min: 0,  color: "var(--critical)", hex: "#d03b3b", verdict: "Low match. You'd be hard to find in a recruiter search." }
   ];
   function band(score) {
     for (var i = 0; i < BANDS.length; i++) if (score >= BANDS[i].min) return BANDS[i];
@@ -749,6 +1644,13 @@ if (typeof module !== "undefined" && module.exports) module.exports = RG;
     lastResult = RG.scan(lastResumeText, lastJdText);
     lastResult.flags = RG.redFlags(lastResumeText);
     lastResult.sections = RG.sectionChecks(lastResumeText);
+    lastResult.gains = RG.gains(lastResult);
+    lastResult.audit = RGE.audit(lastResumeText);
+    lastResult.readiness = RGE.readiness(lastResult, lastResumeText);
+    lastResult.breakdown = RGE.breakdown(lastResult, lastResult.flags);
+    lastResult.plan = RGE.actionPlan(lastResult);
+    lastCover = null; // a new scan may mean a new posting; drop the old cover check
+    $("cover-result").innerHTML = "";
     render();
     scanBtn.textContent = "Rescan";
     $("example").style.display = "none"; // the real result replaces the example
@@ -764,7 +1666,7 @@ if (typeof module !== "undefined" && module.exports) module.exports = RG;
   }
   scanBtn.addEventListener("click", function () {
     if (!inputsOk()) {
-      $("guard").textContent = "Paste at least " + MIN_CHARS + " characters into each box first — both the resume and the posting.";
+      $("guard").textContent = "Paste at least " + MIN_CHARS + " characters into each box first, both the resume and the posting.";
       return;
     }
     runScan();
@@ -792,14 +1694,21 @@ if (typeof module !== "undefined" && module.exports) module.exports = RG;
     $("stat-matched").textContent = res.matched.length + " / " + res.universeSize;
     $("stat-missing").textContent = res.missing.length;
 
-    // free chips
+    // free chips — each tagged with its exact score gain (RG.gains pairs 1:1
+    // with res.missing by construction)
     var chipBox = $("missing-chips");
     chipBox.innerHTML = "";
     var freeList = res.missing.slice(0, FREE_MISSING_LIMIT);
     if (freeList.length === 0) {
-      chipBox.innerHTML = '<span class="none-note">No missing keywords — your resume covers everything important in this posting.</span>';
+      chipBox.innerHTML = '<span class="none-note">No missing keywords. Your resume covers everything important in this posting.</span>';
     }
-    freeList.forEach(function (k) { chipBox.appendChild(chip(k)); });
+    freeList.forEach(function (k, i2) {
+      var g = res.gains.perKeyword[i2] ? res.gains.perKeyword[i2].gain : null;
+      chipBox.appendChild(chip(k, false, g));
+    });
+
+    renderWhyBox(res);
+    renderAuditTeaser(res);
 
     // teaser (a true number, per spec)
     var extra = res.missing.length - FREE_MISSING_LIMIT;
@@ -808,11 +1717,86 @@ if (typeof module !== "undefined" && module.exports) module.exports = RG;
     renderFull();
   }
 
-  function chip(text, hit) {
+  function chip(text, hit, gain) {
     var el = document.createElement("span");
     el.className = "chip" + (hit ? " hit" : "");
     el.textContent = text;
+    if (gain !== null && gain !== undefined && gain > 0) {
+      var g = document.createElement("span");
+      g.className = "gain-tag";
+      g.textContent = "+" + gain;
+      g.title = "Exact score gain if your resume covered this keyword";
+      el.appendChild(g);
+    }
     return el;
+  }
+
+  var BUCKET_LABELS = {
+    general: "the posting",
+    requirements: "the Requirements section",
+    responsibilities: "the Responsibilities section",
+    preferred: "the Nice-to-have section"
+  };
+
+  function evidenceBlock(d) {
+    var frag = document.createDocumentFragment();
+    for (var e = 0; e < d.evidence.length; e++) {
+      var q = document.createElement("div");
+      q.className = "ev-quote";
+      q.textContent = "“" + d.evidence[e] + "”";
+      frag.appendChild(q);
+    }
+    var meta = document.createElement("div");
+    meta.className = "ev-meta";
+    meta.textContent = "Mentioned " + (d.freq === 1 ? "once" : d.freq + " times") + " in " + (BUCKET_LABELS[d.bucket] || "the posting");
+    frag.appendChild(meta);
+    return frag;
+  }
+
+  // Free tier: the receipt for the top missing keyword — the posting's own
+  // sentence. Prefers the first card-worthy keyword (a tool/cert/phrase, not a
+  // bare generic word like "growth") so the showcase example lands well.
+  function renderWhyBox(res) {
+    var box = $("why-box"), body = $("why-body");
+    var top = null, fallback = null;
+    for (var j = 0; j < res.detail.length; j++) {
+      var d = res.detail[j];
+      if (d.credit === 1.0) continue;
+      if (!fallback) fallback = d;
+      if (RGE.cardWorthy(d.cand)) { top = d; break; }
+    }
+    if (!top) top = fallback;
+    if (!top || !top.evidence.length) { box.style.display = "none"; return; }
+    box.style.display = "";
+    body.innerHTML = "";
+    var lead = document.createElement("div");
+    var kw = document.createElement("span");
+    kw.className = "chip";
+    kw.textContent = top.cand;
+    lead.appendChild(kw);
+    lead.appendChild(document.createTextNode(" is a top missing keyword because the posting says so itself:"));
+    body.appendChild(lead);
+    body.appendChild(evidenceBlock(top));
+  }
+
+  // Free tier: one true writing-audit stat, details locked
+  function renderAuditTeaser(res) {
+    var el = $("audit-teaser");
+    if (unlocked) { el.style.display = "none"; return; }
+    var a = res.audit;
+    el.style.display = "";
+    if (a.count === 0) {
+      el.innerHTML = "<b>Writing audit:</b> no bullet lines detected in your resume. The full report explains what the audit looks for and why bullets matter.";
+      return;
+    }
+    // a bullet counts as an issue if it lacks a strong opener or lacks a number
+    var issueSet = {};
+    a.noVerb.forEach(function (b) { issueSet[b] = true; });
+    a.noNumber.forEach(function (b) { issueSet[b] = true; });
+    a.weak.forEach(function (w) { issueSet[w.text] = true; });
+    var issues = Object.keys(issueSet).length;
+    el.innerHTML = "<b>Writing audit:</b> " + issues + " of your " + a.count +
+      " bullets could hit harder (weak openers, missing numbers, or both). The full report shows which ones, and how to fix each.";
   }
 
   // Animates from the last shown score (rescan reads 42 -> 87, not 0 -> 87 —
@@ -839,38 +1823,319 @@ if (typeof module !== "undefined" && module.exports) module.exports = RG;
   }
 
   // ---------- locked / unlocked ----------
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  function renderPlan(res) {
+    var box = $("plan");
+    box.innerHTML = "";
+    if (!res.plan.top.length) {
+      box.appendChild(el("p", "plan-note", "Nothing to fix here. Your resume already covers every keyword this scan pulled from the posting."));
+      return;
+    }
+    var arc = el("div", "plan-arc");
+    arc.appendChild(el("span", null, String(res.score)));
+    arc.appendChild(el("span", "arrow", "→"));
+    arc.appendChild(el("span", "to", String(res.plan.projected)));
+    box.appendChild(arc);
+    box.appendChild(el("p", "plan-note",
+      "Covering just these " + res.plan.top.length + " keywords (assuming they're genuinely true of you) moves this scan from " +
+      res.score + " to " + res.plan.projected + ". That's exact math based on how this posting weights its terms, not an estimate."));
+    var ul = el("ul", "plan-list");
+    res.plan.top.forEach(function (t) {
+      var li = el("li");
+      li.appendChild(el("span", "kw", t.cand));
+      li.appendChild(el("span", "gain-tag", "+" + t.gain + " pts"));
+      ul.appendChild(li);
+    });
+    box.appendChild(ul);
+    box.appendChild(el("p", "plan-note", "Cover the whole missing list below and this scan hits 100."));
+  }
+
+  function bar(label, pct, sub) {
+    var frag = document.createDocumentFragment();
+    var row = el("div", "bar-row");
+    row.appendChild(el("div", null, label));
+    var track = el("div", "bar-track");
+    var cls = pct >= 75 ? "high" : (pct >= 50 ? "mid" : "low");
+    var fill = el("div", "bar-fill " + cls);
+    fill.style.width = Math.max(0, Math.min(100, pct)) + "%";
+    track.appendChild(fill);
+    row.appendChild(track);
+    row.appendChild(el("div", "bar-val", pct + "%"));
+    row.appendChild(el("div", "bar-sub", sub));
+    frag.appendChild(row);
+    return frag;
+  }
+
+  function renderBreakdown(res) {
+    var box = $("breakdown");
+    box.innerHTML = "";
+    var b = res.breakdown;
+    if (b.single !== null) {
+      box.appendChild(bar("Single-word terms", b.single,
+        "Share of the posting's single-word vocabulary (tools, skills, nouns) your resume covers."));
+    }
+    if (b.phrase !== null) {
+      box.appendChild(bar("Phrases & terms of art", b.phrase,
+        "Multi-word terms weigh extra. Recruiters search whole phrases, and partial wording only earns half credit."));
+    }
+    box.appendChild(bar("Formatting checks", Math.round((b.cleanChecks / 10) * 100),
+      b.cleanChecks + " of 10 ATS formatting checks passed. Details are in the red-flag list below."));
+  }
+
+  function kcard(d, gain, open) {
+    var cat = RGE.classify(d.cand);
+    var info = RG_DATA.categoryInfo[cat];
+    var partial = d.credit === 0.5;
+    var card = el("details", "kcard");
+    if (open) card.open = true;
+    var sum = el("summary");
+    sum.appendChild(el("span", "kw" + (partial ? " partial" : ""), d.cand));
+    sum.appendChild(el("span", "cat-tag", info.label));
+    if (gain > 0) sum.appendChild(el("span", "gain-tag", "+" + gain + " pts"));
+    card.appendChild(sum);
+    var body = el("div", "kcard-body");
+    if (partial) {
+      var pp = el("p");
+      pp.appendChild(el("b", null, "So close: "));
+      pp.appendChild(document.createTextNode(
+        "your resume has every word in this phrase, just not together the way the posting writes it. Recruiters search the exact phrase, so use it word for word where it's true."));
+      body.appendChild(pp);
+    }
+    var pw = el("p");
+    pw.appendChild(el("b", null, "Why it matters: "));
+    pw.appendChild(document.createTextNode(info.why));
+    body.appendChild(pw);
+    var pl = el("p");
+    pl.appendChild(el("b", null, "Where to add it: "));
+    pl.appendChild(document.createTextNode(info.where));
+    body.appendChild(pl);
+    body.appendChild(el("div", "pattern", info.pattern.split("{kw}").join(d.cand)));
+    var pf = el("p");
+    pf.appendChild(el("b", null, "From the posting: "));
+    body.appendChild(pf);
+    body.appendChild(evidenceBlock(d));
+    card.appendChild(body);
+    return card;
+  }
+
+  function renderMissingCards(res) {
+    var fm = $("full-missing");
+    fm.innerHTML = "";
+    if (res.missing.length === 0) {
+      fm.innerHTML = '<span class="none-note">Nothing missing. Full coverage.</span>';
+      return;
+    }
+    var gi = 0, opened = 0;
+    var demoted = [];
+    res.detail.forEach(function (d) {
+      if (d.credit === 1.0) return;
+      var gain = res.gains.perKeyword[gi] ? res.gains.perKeyword[gi].gain : 0;
+      gi++;
+      if (RGE.cardWorthy(d.cand)) {
+        fm.appendChild(kcard(d, gain, opened < 3));
+        opened++;
+      } else {
+        demoted.push({ cand: d.cand, gain: gain });
+      }
+    });
+    if (demoted.length) {
+      fm.appendChild(el("p", "ready-note",
+        "Also missing: everyday vocabulary the posting uses. These don't need any special placement. Just work them into your bullets and summary naturally, where they're true:"));
+      var strip = el("div", "chips");
+      demoted.forEach(function (x) { strip.appendChild(chip(x.cand, false, x.gain)); });
+      fm.appendChild(strip);
+    }
+  }
+
+  function renderReadiness(res) {
+    var box = $("readiness");
+    box.innerHTML = "";
+    var r = res.readiness;
+    if (!r.available) {
+      box.appendChild(el("p", "ready-note",
+        "Couldn't find clearly labeled Skills and Experience sections, so the placement stress test was skipped. Add standard section headers first (see Section checks below)."));
+      return;
+    }
+    if (!r.listedOnly.length) {
+      box.appendChild(el("p", "ready-note",
+        "✓ Every matched keyword also shows up in your Experience section. Your matches are backed by real work, which is exactly what a skimming recruiter wants to see."));
+      return;
+    }
+    box.appendChild(el("p", "ready-note",
+      (r.listedOnly.length === 1 ? "This keyword counts" : "These " + r.listedOnly.length + " keywords count") +
+      " as matched, but only because of your Skills list. None of your Experience bullets back " +
+      (r.listedOnly.length === 1 ? "it" : "them") +
+      " up. A recruiter reads that as claimed rather than proven, and it's often the first thing they'll probe in an interview:"));
+    var ul = el("ul", "ready-list");
+    r.listedOnly.forEach(function (k) {
+      var li = el("li");
+      li.appendChild(el("b", null, k));
+      li.appendChild(document.createTextNode(": add one experience bullet showing it in action, and be ready to talk through a specific example."));
+      ul.appendChild(li);
+    });
+    box.appendChild(ul);
+  }
+
+  function quoteList(items, cap, markPhrase) {
+    var box = el("div", "audit-quotes");
+    var shown = items.slice(0, cap);
+    shown.forEach(function (it) {
+      var text = typeof it === "string" ? it : it.text;
+      var q = el("div", "q");
+      if (markPhrase && typeof it !== "string") {
+        var idx = text.toLowerCase().indexOf(it.phrase);
+        if (idx >= 0) {
+          if (idx > 0) q.appendChild(document.createTextNode(text.slice(0, idx)));
+          q.appendChild(el("mark", null, text.slice(idx, idx + it.phrase.length)));
+          q.appendChild(document.createTextNode(truncate(text.slice(idx + it.phrase.length), 80)));
+        } else {
+          q.textContent = truncate(text, 90);
+        }
+      } else {
+        q.textContent = truncate(text, 90);
+      }
+      box.appendChild(q);
+    });
+    if (items.length > cap) box.appendChild(el("div", "audit-note", "+" + (items.length - cap) + " more"));
+    return box;
+  }
+
+  function truncate(s, n) {
+    return s.length > n ? s.slice(0, n - 1) + "…" : s;
+  }
+
+  function auditStat(box, cls, num, label, note, quotes) {
+    var row = el("div", "audit-stat " + cls);
+    row.appendChild(el("span", "num", num));
+    row.appendChild(el("span", null, label));
+    if (note) row.appendChild(el("span", "audit-note", note));
+    box.appendChild(row);
+    if (quotes) box.appendChild(quotes);
+  }
+
+  function renderAudit(res) {
+    var box = $("audit");
+    box.innerHTML = "";
+    var a = res.audit;
+    if (a.count === 0) {
+      box.appendChild(el("p", "ready-note",
+        "No bullet lines detected. The audit reads lines starting with -, •, or numbers (or plain lines under an Experience header). Resumes without bullets are harder for recruiters to skim, so consider restructuring your experience into bulleted achievements."));
+      return;
+    }
+    box.appendChild(el("p", "ready-note",
+      a.count + " bullets analyzed (detected via " + a.how + "). Recruiters skim bullets in seconds, so each one should open with a strong verb and land on a number."));
+
+    var vPct = a.count ? a.verbOk / a.count : 0;
+    auditStat(box, vPct >= 0.8 ? "good" : (vPct >= 0.5 ? "warn" : "bad"),
+      a.verbOk + " / " + a.count, "bullets open with a strong action verb",
+      "Basic resume rule: every bullet should open with one.",
+      a.noVerb.length ? quoteList(a.noVerb, 3) : null);
+
+    if (a.weak.length) {
+      auditStat(box, "bad", String(a.weak.length),
+        "bullet" + (a.weak.length === 1 ? " opens" : "s open") + " with a weak phrase",
+        "\"Responsible for\" describes a duty, not an achievement. Swap it for led, built, launched, or delivered.",
+        quoteList(a.weak, 3, true));
+    }
+
+    var nPct = a.count ? a.withNumber / a.count : 0;
+    auditStat(box, nPct >= 0.6 ? "good" : (nPct >= 0.3 ? "warn" : "bad"),
+      a.withNumber + " / " + a.count, "bullets contain a number, % or $",
+      "A number is one of the most convincing things a bullet can have. Aim for well over half.",
+      a.noNumber.length ? quoteList(a.noNumber, 3) : null);
+
+    if (a.cliches.length) {
+      var phrases = a.cliches.map(function (c) { return "“" + c.phrase + "”" + (c.count > 1 ? " ×" + c.count : ""); }).join(", ");
+      auditStat(box, "warn", String(a.cliches.length),
+        "recruiter-cliché phrase" + (a.cliches.length === 1 ? "" : "s") + ": " + phrases,
+        "Anyone can claim these. Replace each one with a bullet that proves it instead.");
+    }
+
+    if (a.pronounCount > 0) {
+      auditStat(box, "warn", String(a.pronounCount),
+        "first-person pronoun" + (a.pronounCount === 1 ? "" : "s") + " (I / me / my)",
+        "Resumes are written in implied first person, so drop the pronouns entirely.");
+    }
+
+    if (a.passive.length) {
+      auditStat(box, "warn", String(a.passive.length),
+        "possible passive-voice bullet" + (a.passive.length === 1 ? "" : "s") + " (approximate check)",
+        "\"Was promoted\" hides the actor. Lead with what you did.",
+        quoteList(a.passive, 2));
+    }
+
+    if (a.long.length || a.short.length) {
+      auditStat(box, "warn", String(a.long.length + a.short.length),
+        "length outlier" + (a.long.length + a.short.length === 1 ? "" : "s") +
+        (a.long.length ? ": " + a.long.length + " over 40 words (split them)" : "") +
+        (a.short.length ? (a.long.length ? ", plus " : ": ") + a.short.length + " under 4 words (too thin to say anything)" : ""),
+        null,
+        a.long.length ? quoteList(a.long, 2) : null);
+    }
+
+    var wcNote;
+    if (a.wordCount < 400) wcNote = "under the 400-650 sweet spot for a one-page resume, so there's likely room to say more";
+    else if (a.wordCount <= 650) wcNote = "in the 400-650 sweet spot for a one-page resume";
+    else if (a.wordCount <= 1200) wcNote = "in the 700-1,200 two-page range, which is fine for 10+ years of relevant experience";
+    else wcNote = "past the 1,200-word two-page range. Trim to your strongest material, since recruiters skim rather than read";
+    auditStat(box, a.wordCount >= 400 && a.wordCount <= 1200 ? "good" : "warn",
+      a.wordCount.toLocaleString(), "words, " + wcNote);
+  }
+
   function renderFull() {
     if (!unlocked || !lastResult) return;
     var res = lastResult;
 
-    var fm = $("full-missing");
-    fm.innerHTML = "";
-    if (res.missing.length === 0) fm.innerHTML = '<span class="none-note">Nothing missing — full coverage.</span>';
-    res.missing.forEach(function (k) { fm.appendChild(chip(k)); });
+    renderPlan(res);
+    renderBreakdown(res);
+    renderMissingCards(res);
 
     var fmat = $("full-matched");
     fmat.innerHTML = "";
-    if (res.matched.length === 0) fmat.innerHTML = '<span class="none-note">No matches yet — start with the missing list.</span>';
+    if (res.matched.length === 0) fmat.innerHTML = '<span class="none-note">No matches yet. Start with the missing list.</span>';
     res.matched.forEach(function (k) { fmat.appendChild(chip(k, true)); });
+    renderReadiness(res);
+
+    renderAudit(res);
 
     var sc = $("section-checks");
     sc.innerHTML = "";
     res.sections.forEach(function (s) {
       var row = document.createElement("div");
       row.className = "checkrow " + (s.present ? "pass" : "fail");
-      row.innerHTML = '<span class="mark">' + (s.present ? "✓" : "✗") + "</span><span>" +
-        s.name + " section " + (s.present ? "found" : "not found — add a clearly-labeled " + s.name + " section") + "</span>";
+      row.innerHTML = '<span class="mark">' + (s.present ? "✓" : "✗") + "</span><span></span>";
+      row.children[1].textContent = s.name + " section " + (s.present ? "found" : "not found. Add a clearly labeled " + s.name + " section.");
+      if (!s.present && RG_DATA.sectionInfo[s.name]) {
+        var why = el("div", "audit-note", RG_DATA.sectionInfo[s.name].why);
+        why.style.marginTop = "2px";
+        row.children[1].appendChild(why);
+      }
       sc.appendChild(row);
     });
 
     var fl = $("flags");
     fl.innerHTML = "";
     if (res.flags.length === 0) {
-      fl.innerHTML = '<li class="none">No red flags detected — clean formatting.</li>';
+      fl.innerHTML = '<li class="none">No red flags detected. Clean formatting.</li>';
     } else {
       res.flags.forEach(function (f) {
         var li = document.createElement("li");
-        li.textContent = f;
+        var head = el("div", null, f);
+        head.style.fontWeight = "600";
+        li.appendChild(head);
+        var info = RG_DATA.flagInfo[f];
+        if (info) {
+          li.appendChild(el("div", "audit-note", "Why it hurts: " + info.why));
+          var fix = el("div", "audit-note", "Fix: " + info.fix);
+          fix.style.color = "var(--ink-2)";
+          li.appendChild(fix);
+        }
         fl.appendChild(li);
       });
     }
@@ -881,6 +2146,7 @@ if (typeof module !== "undefined" && module.exports) module.exports = RG;
     $("locked").style.display = on ? "none" : "";
     $("full").classList.toggle("show", on);
     if (on) renderFull();
+    if (lastResult) renderAuditTeaser(lastResult); // teaser only shows while locked
   }
 
   // buy button — degrades honestly while the Gumroad product isn't live yet
@@ -888,12 +2154,12 @@ if (typeof module !== "undefined" && module.exports) module.exports = RG;
   // local/offline copies of the file)
   var buyBtn = $("buy");
   if (GUMROAD_PRODUCT_PERMALINK === "REPLACE_ME") {
-    buyBtn.textContent = "Full Report — purchases opening soon";
+    buyBtn.textContent = "Full Report: purchases opening soon";
     $("buy-note").textContent = "One-time unlock, never a subscription. Email " + CONTACT + " for early access.";
-    $("price-claim").textContent = "Full report unlock coming soon — one-time price, never a subscription.";
+    $("price-claim").textContent = "Full report unlock coming soon. One-time price, never a subscription.";
     buyBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      $("buy-note").textContent = "Purchases open very soon — email " + CONTACT + " for early access.";
+      $("buy-note").textContent = "Purchases open very soon. Email " + CONTACT + " for early access.";
     });
   } else {
     buyBtn.href = GUMROAD_BUY_URL;
@@ -956,39 +2222,200 @@ if (typeof module !== "undefined" && module.exports) module.exports = RG;
     $("key-input").value = "";
   });
 
-  // ---------- report download ----------
+  // ---------- cover letter bonus check ----------
+  var lastCover = null; // cleared on every resume rescan so the report never carries a stale check
+
+  function runCoverCheck() {
+    var txt = $("cover").value;
+    var out = $("cover-result");
+    out.innerHTML = "";
+    if (!lastResult || lastJdText.length < MIN_CHARS) {
+      out.appendChild(el("p", "ready-note", "Run a resume scan first. The cover letter gets checked against the same posting."));
+      return;
+    }
+    if (txt.length < MIN_CHARS) {
+      out.appendChild(el("p", "ready-note", "Paste at least " + MIN_CHARS + " characters of your cover letter first."));
+      return;
+    }
+    var cres = RG.scan(txt, lastJdText);
+    var ca = RGE.coverAudit(txt, lastResumeText, lastJdText);
+    lastCover = { score: cres.score, matched: cres.matched, missing: cres.missing,
+                  universeSize: cres.universeSize, advice: ca.advice, wordCount: ca.wordCount };
+
+    var p = el("p");
+    p.appendChild(el("b", null, cres.score + " / 100"));
+    p.appendChild(document.createTextNode(". Your cover letter covers " + cres.matched.length + " of the posting's " + cres.universeSize + " key terms, in " + ca.wordCount + " words."));
+    out.appendChild(p);
+    if (cres.missing.length) {
+      out.appendChild(el("p", "ready-note", "The biggest gaps worth weaving into your opening paragraphs, only where they're true:"));
+      var chips = el("div", "chips");
+      cres.missing.slice(0, 6).forEach(function (k) { chips.appendChild(chip(k)); });
+      out.appendChild(chips);
+    } else {
+      out.appendChild(el("p", "ready-note", "Full coverage. Your cover letter already speaks the posting's language."));
+    }
+
+    if (ca.advice.length) {
+      out.appendChild(el("p", "ready-note", "Cover letter advice, beyond the keywords:"));
+      var ul = el("ul", "ready-list");
+      ul.id = "cover-advice";
+      ca.advice.forEach(function (a) {
+        var li = el("li");
+        li.appendChild(el("b", null, a.level === "warn" ? "Fix: " : "Consider: "));
+        li.appendChild(document.createTextNode(a.text));
+        ul.appendChild(li);
+      });
+      out.appendChild(ul);
+    } else {
+      out.appendChild(el("p", "ready-note", "The letter itself looks clean: greeting, length, a closing ask, and no stock phrases. The keyword gaps above are the remaining lever."));
+    }
+  }
+
+  $("cover-scan").addEventListener("click", runCoverCheck);
+  $("cover-sample").addEventListener("click", function () {
+    $("cover").value = SAMPLE_COVER;
+    runCoverCheck();
+  });
+
+  // ---------- report download (v2: mirrors every full-report section) ----------
+  var BUCKET_PLAIN = {
+    general: "the posting",
+    requirements: "the Requirements section",
+    responsibilities: "the Responsibilities section",
+    preferred: "the Nice-to-have section"
+  };
+
   $("report").addEventListener("click", function () {
     if (!lastResult) return;
     var res = lastResult;
     var b = band(res.score);
-    var lines = [];
-    lines.push("REZGAP REPORT");
-    lines.push("Generated: " + new Date().toISOString());
-    lines.push("");
-    lines.push("MATCH SCORE: " + res.score + " / 100  (" + b.verdict + ")");
-    lines.push("Keywords matched: " + res.matched.length + " of " + res.universeSize);
-    lines.push("");
-    lines.push("MISSING KEYWORDS (ranked, most important first)");
-    lines.push("Add the ones that are genuinely true of your experience:");
-    res.missing.forEach(function (k, i2) { lines.push("  " + (i2 + 1) + ". " + k); });
-    if (!res.missing.length) lines.push("  (none — full coverage)");
-    lines.push("");
-    lines.push("MATCHED KEYWORDS");
-    res.matched.forEach(function (k) { lines.push("  - " + k); });
-    if (!res.matched.length) lines.push("  (none)");
-    lines.push("");
-    lines.push("SECTION CHECKS");
-    res.sections.forEach(function (s) { lines.push("  [" + (s.present ? "OK" : "MISSING") + "] " + s.name); });
-    lines.push("");
-    lines.push("ATS RED FLAGS");
-    if (res.flags.length) res.flags.forEach(function (f) { lines.push("  ! " + f); });
-    else lines.push("  (none — clean formatting)");
-    lines.push("");
-    lines.push("--");
-    lines.push("RezGap runs entirely in your browser; nothing you paste is sent anywhere.");
-    lines.push("Keyword overlap is a screening signal, not a guarantee. Only add keywords that are true.");
+    var L = [];
+    L.push("REZGAP FULL REPORT");
+    L.push("Generated: " + new Date().toISOString());
+    L.push("");
+    L.push("MATCH SCORE: " + res.score + " / 100  (" + b.verdict + ")");
+    L.push("Keywords matched: " + res.matched.length + " of " + res.universeSize);
+    L.push("The score is the weighted share of the posting's own language your resume covers.");
+    L.push("In practice, that's roughly how findable you are when a recruiter searches by these terms.");
+    L.push("");
+    L.push("SCORE BREAKDOWN");
+    if (res.breakdown.single !== null) L.push("  Single-word terms covered: " + res.breakdown.single + "%");
+    if (res.breakdown.phrase !== null) L.push("  Phrases & terms of art covered: " + res.breakdown.phrase + "%");
+    L.push("  Formatting checks passed: " + res.breakdown.cleanChecks + " of 10");
+    L.push("");
+    L.push("FASTEST PATH UP");
+    if (res.plan.top.length) {
+      res.plan.top.forEach(function (t) { L.push("  + " + t.cand + "  (+" + t.gain + " pts)"); });
+      L.push("  Projected score after these " + res.plan.top.length + ": " + res.plan.projected + " / 100 (exact math, not an estimate)");
+      L.push("  Cover the entire missing list: 100 / 100");
+    } else {
+      L.push("  (nothing to fix; full keyword coverage)");
+    }
+    L.push("");
+    L.push("MISSING KEYWORDS, WHY AND HOW (ranked, most important first)");
+    L.push("Only add keywords that are genuinely true of your experience.");
+    var gi = 0, ci = 0;
+    var demotedTxt = [];
+    res.detail.forEach(function (d) {
+      if (d.credit === 1.0) return;
+      var g = res.gains.perKeyword[gi] ? res.gains.perKeyword[gi].gain : 0;
+      gi++;
+      if (!RGE.cardWorthy(d.cand)) {
+        demotedTxt.push(d.cand + " (+" + g + " pts)");
+        return;
+      }
+      ci++;
+      var info = RG_DATA.categoryInfo[RGE.classify(d.cand)];
+      L.push("  " + ci + ". " + d.cand + "  [" + info.label + ", +" + g + " pts]" +
+        (d.credit === 0.5 ? "  (partial: all the words are present, the exact phrase isn't)" : ""));
+      d.evidence.forEach(function (e) { L.push("     From the posting: \"" + e + "\""); });
+      L.push("     Mentioned " + d.freq + "x in " + (BUCKET_PLAIN[d.bucket] || "the posting"));
+      L.push("     Why it matters: " + info.why);
+      L.push("     Where to add it: " + info.where);
+      L.push("     Phrasing pattern: " + info.pattern.split("{kw}").join(d.cand));
+    });
+    if (demotedTxt.length) {
+      L.push("  Also missing, everyday vocabulary (work these in naturally where true):");
+      L.push("    " + demotedTxt.join(", "));
+    }
+    if (!res.missing.length) L.push("  (none; full coverage)");
+    L.push("");
+    L.push("MATCHED KEYWORDS: THE STRESS TEST");
+    res.matched.forEach(function (k) { L.push("  - " + k); });
+    if (!res.matched.length) L.push("  (none)");
+    if (res.readiness.available && res.readiness.listedOnly.length) {
+      L.push("  Matched, but only listed under Skills and never shown in an Experience bullet.");
+      L.push("  A recruiter reads that as claimed rather than proven. Back each with a bullet and be interview-ready:");
+      res.readiness.listedOnly.forEach(function (k) { L.push("    ! " + k); });
+    } else if (res.readiness.available) {
+      L.push("  All matched keywords are backed by your Experience section.");
+    }
+    L.push("");
+    L.push("RESUME WRITING AUDIT (independent of this posting)");
+    var a2 = res.audit;
+    if (a2.count === 0) {
+      L.push("  No bullet lines detected. Restructure your experience into bulleted achievements.");
+    } else {
+      L.push("  Bullets analyzed: " + a2.count + " (via " + a2.how + ")");
+      L.push("  Open with a strong action verb: " + a2.verbOk + " / " + a2.count);
+      if (a2.weak.length) {
+        L.push("  Weak openers to rewrite (swap for led / built / launched / delivered):");
+        a2.weak.forEach(function (w) { L.push("    ! \"" + w.phrase + "\" in: " + w.text); });
+      }
+      L.push("  Contain a number, % or $: " + a2.withNumber + " / " + a2.count + " (a number makes a bullet far more convincing)");
+      if (a2.noNumber.length) {
+        a2.noNumber.slice(0, 5).forEach(function (t) { L.push("    add a metric: " + t); });
+        if (a2.noNumber.length > 5) L.push("    (+" + (a2.noNumber.length - 5) + " more)");
+      }
+      if (a2.cliches.length) {
+        L.push("  Cliches to replace with proof: " + a2.cliches.map(function (c) { return c.phrase + (c.count > 1 ? " x" + c.count : ""); }).join(", "));
+      }
+      if (a2.pronounCount) L.push("  First-person pronouns to remove: " + a2.pronounCount);
+      if (a2.passive.length) L.push("  Possible passive-voice bullets (approximate): " + a2.passive.length);
+      if (a2.long.length) L.push("  Bullets over 40 words (split them): " + a2.long.length);
+      if (a2.short.length) L.push("  Bullets under 4 words (too thin): " + a2.short.length);
+      L.push("  Word count: " + a2.wordCount + " (1-page sweet spot: 400-650; 2-page band: 700-1200)");
+    }
+    if (lastCover) {
+      L.push("");
+      L.push("COVER LETTER CHECK (against the same posting)");
+      L.push("  Match: " + lastCover.score + " / 100, covering " + lastCover.matched.length + " of " + lastCover.universeSize + " key terms in " + lastCover.wordCount + " words");
+      if (lastCover.missing.length) {
+        L.push("  Top gaps: " + lastCover.missing.slice(0, 6).join(", "));
+      }
+      if (lastCover.advice.length) {
+        L.push("  Advice beyond the keywords:");
+        lastCover.advice.forEach(function (a) {
+          L.push("  " + (a.level === "warn" ? "! " : "- ") + a.text.replace(/[“”]/g, "\""));
+        });
+      } else {
+        L.push("  The letter itself looks clean: greeting, length, a closing ask, and no stock phrases.");
+      }
+    }
+    L.push("");
+    L.push("SECTION CHECKS");
+    res.sections.forEach(function (s) { L.push("  [" + (s.present ? "OK" : "MISSING") + "] " + s.name); });
+    L.push("");
+    L.push("ATS RED FLAGS");
+    if (res.flags.length) {
+      res.flags.forEach(function (f) {
+        L.push("  ! " + f);
+        var info = RG_DATA.flagInfo[f];
+        if (info) {
+          L.push("    Why: " + info.why);
+          L.push("    Fix: " + info.fix);
+        }
+      });
+    } else {
+      L.push("  (none; clean formatting)");
+    }
+    L.push("");
+    L.push("--");
+    L.push("RezGap runs entirely in your browser; nothing you paste is sent anywhere.");
+    L.push("Keyword overlap is a screening signal, one of several things a recruiter weighs.");
+    L.push("It can't promise an interview. Only add keywords that are true.");
 
-    var blob = new Blob([lines.join("\r\n")], { type: "text/plain" });
+    var blob = new Blob([L.join("\r\n")], { type: "text/plain" });
     var a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = "rezgap-report.txt";
