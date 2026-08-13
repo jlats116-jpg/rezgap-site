@@ -35,7 +35,7 @@
           "name": "Is my resume uploaded or stored anywhere?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Nothing you paste is ever sent anywhere, because scoring runs entirely in your browser. The only network request the page can make is the one-time license check if you buy the full report."
+            "text": "No. Nothing you paste is ever sent anywhere, because scoring runs entirely in your browser. The page makes two kinds of network requests: an anonymous visit and click count through GoatCounter, which uses no cookies and never sees your text, and the one-time license check if you buy the full report."
           }
         },
         {
@@ -485,14 +485,14 @@
       </div>
     </section>
     <section class="trust" aria-label="Why this is safe to use">
-      <div class="trust-item"><b>100% in your browser</b><p>Nothing is ever uploaded. Your resume never touches a server. Check the network tab if you like.</p></div>
+      <div class="trust-item"><b>Scored 100% in your browser</b><p>Nothing you paste is ever uploaded. Your resume never touches a server. Check the network tab if you like: nothing that fires carries your text.</p></div>
       <div class="trust-item"><b>No signup</b><p>No email, no account, no "unlock your results" trap. Paste, scan, done.</p></div>
       <div class="trust-item"><b>Free unlimited scans</b><p>Scan every job you apply to. The free version stays free.</p></div>
     </section>
   </main>
 
   <footer>
-    <p><strong style="color:var(--ink-2)">Privacy:</strong> nothing you paste is ever sent anywhere, because scoring runs entirely in your browser. The only network request this page can make is the one-time license check if you buy the full report. If you unlock, that unlock (including your license key) is remembered in this browser's local storage so you never have to re-enter it. On a shared computer, use the "forget this unlock" link in the full report when you're done.</p>
+    <p><strong style="color:var(--ink-2)">Privacy:</strong> nothing you paste is ever sent anywhere, because scoring runs entirely in your browser. This page makes two kinds of network requests: an anonymous visit and click count through GoatCounter (open source, no cookies, no personal data, and never any of your text), and the one-time license check if you buy the full report. If you unlock, that unlock (including your license key) is remembered in this browser's local storage so you never have to re-enter it. On a shared computer, use the "forget this unlock" link in the full report when you're done.</p>
     <details>
       <summary>How scoring works (and what it can't tell you)</summary>
       <p>RezGap extracts the most important keywords and phrases from the job posting (weighted by how often and how prominently they appear), then checks which ones your resume actually contains. The score is the weighted share your resume covers. It measures keyword overlap, the same thing recruiters' ATS searches check for. It doesn't judge your experience, and it can't guarantee an interview. And despite the scare stat you may have seen elsewhere, most ATS don't auto-reject resumes. They store them, and recruiters search and rank them by keywords. That search is what this score approximates. It also doesn't understand synonyms: if the posting says "Google Analytics" and you wrote "web analytics tooling," add their exact words where they're true of you. Never add keywords that aren't true.</p>
@@ -1625,6 +1625,7 @@ var RGE = (function () {
     jdEl.value = SAMPLE_JD;
     updateGuard();
     runScan();
+    if (window.rgCount) window.rgCount("scan-sample"); // demo-data scans counted separately from real ones
   });
 
   // ---------- scan + money screen ----------
@@ -1670,6 +1671,7 @@ var RGE = (function () {
       return;
     }
     runScan();
+    if (window.rgCount) window.rgCount("scan"); // count only; no score, no text
   });
 
   function render() {
@@ -2163,6 +2165,9 @@ var RGE = (function () {
     });
   } else {
     buyBtn.href = GUMROAD_BUY_URL;
+    buyBtn.addEventListener("click", function () {
+      if (window.rgCount) window.rgCount("unlock-click"); // outbound to Gumroad
+    });
   }
 
   // license key flow
@@ -2190,6 +2195,7 @@ var RGE = (function () {
         saveUnlock(key);
         keyMsg("Unlocked. Thank you!", "ok");
         setUnlocked(true);
+        if (window.rgCount) window.rgCount("license-verified");
       } else {
         keyMsg("Couldn't verify that key. Double-check it, or email " + CONTACT + " with your Gumroad receipt for a manual unlock.", "err");
       }
@@ -2426,6 +2432,32 @@ var RGE = (function () {
   });
 
   updateGuard();
+})();
+</script>
+<!-- Visit counting: GoatCounter (no cookies, stores no personal data, and never
+     anything you paste; disclosed in the privacy note above). Injected at
+     runtime only on the live hosts below, so local and offline copies of this
+     file make no analytics calls at all. Setup: ANALYTICS-SETUP.md. -->
+<script>
+(function () {
+  var LIVE = ["rezgap.com", "www.rezgap.com", "jlats116-jpg.github.io"];
+  var ok = false;
+  for (var i = 0; i < LIVE.length; i++) { if (location.hostname === LIVE[i]) { ok = true; break; } }
+  if (!ok) return;
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://gc.zgo.at/count.js";
+  s.setAttribute("data-goatcounter", "https://rezgap.goatcounter.com/count");
+  document.body.appendChild(s);
+  // count-only event helper; defined ONLY on the live site, so every call
+  // site checks window.rgCount first and local copies stay silent
+  window.rgCount = function (name) {
+    try {
+      if (window.goatcounter && typeof window.goatcounter.count === "function") {
+        window.goatcounter.count({ path: name, event: true });
+      }
+    } catch (e) { /* analytics must never break the product */ }
+  };
 })();
 </script>
 </body>
